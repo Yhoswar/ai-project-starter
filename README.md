@@ -186,13 +186,38 @@ Una vez ejecutado el script, deberás:
 
 ### 1. Instalar Claude Code Skills Globales (Recomendado)
 
-```bash
-# Skills esenciales
-claude plugin install superpowers@superpowers-marketplace
-claude plugin install claude-mem@thedotmack
+**Esenciales (instalar primero):**
 
-# Para proyectos frontend
+```bash
+# Framework de desarrollo ágil con 20+ skills
+claude plugin install superpowers@superpowers-marketplace
+
+# Memoria persistente entre sesiones
+claude plugin install claude-mem@thedotmack
+```
+
+**Para Proyectos Frontend:**
+
+```bash
+# Guía de diseño bold y tipografía
 claude plugin install frontend-design@claude-plugins-official
+
+# Design System Generator + 99 UX Guidelines + UI Trends 2025
+claude plugin install ui-ux-pro-max@ui-ux-pro-max-skill
+```
+
+**Para Code Review y Quality:**
+
+```bash
+# Revisión automática con 5 agentes paralelos
+claude plugin install code-review@claude-plugins-official
+```
+
+**Para Extensibilidad (Opcional):**
+
+```bash
+# Crear y validar skills personalizados
+claude plugin install skill-creator@claude-plugins-official
 ```
 
 ### 2. Personalizar `CLAUDE.md`
@@ -290,10 +315,12 @@ Ajusta los permisos según las necesidades de tu proyecto:
 
 | Skill | Marketplace | Propósito |
 |---|---|---|
-| **Superpowers** | `superpowers@superpowers-marketplace` | Framework de desarrollo ágil |
-| **Claude Mem** | `claude-mem@thedotmack` | Memoria persistente entre sesiones |
-| **Frontend Design** | `frontend-design@claude-plugins-official` | Guía de diseño frontend |
-| **Code Review** | `code-review@claude-plugins-official` | Revisión automática de código |
+| **Superpowers** | `superpowers@superpowers-marketplace` | Framework de desarrollo ágil con 20+ skills integrados |
+| **Claude Mem** | `claude-mem@thedotmack` | Memoria persistente entre sesiones con compresión IA |
+| **Frontend Design** | `frontend-design@claude-plugins-official` | Guía de diseño bold, tipografía y animaciones |
+| **UI/UX Pro Max** | `ui-ux-pro-max@ui-ux-pro-max-skill` | Design System Generator + 99 UX Guidelines + UI Trends 2025 |
+| **Code Review** | `code-review@claude-plugins-official` | Revisión automática con 5 agentes Sonnet en paralelo |
+| **Skill Creator** | `skill-creator@claude-plugins-official` | Crear y validar skills personalizados interactivamente |
 
 ---
 
