@@ -25,6 +25,80 @@ En lugar de configurar manualmente archivos `CLAUDE.md`, `AGENTS.md`, `.claude/`
 - ✅ **Agnóstico de tecnología** - funciona con React, PHP, Python, Next.js, etc.
 - ✅ **Listo para GitHub** - configurado como template repository
 - ✅ **Documentación incluida** - guías y mejores prácticas
+- ✅ **Sistema multi-agente** - 7 agentes especializados con orquestación automática
+
+---
+
+## 🤖 Sistema Multi-Agente Incluido
+
+Este template incluye un **sistema de orquestación con 7 agentes especializados** listo para usar, que permite ejecutar tareas complejas en paralelo con coordinación automática.
+
+### Agentes Disponibles
+
+| Agente | Especialización | Cuándo Usarlo |
+|---|---|---|
+| **Director** | Coordinación y planificación | Coordina equipos, descompone objetivos complejos |
+| **Arquitecto** | Diseño de sistemas y estructura | Decisiones de arquitectura, patrones, escalabilidad |
+| **Frontend** | UI/UX, HTML, CSS, JS, React | Interfaces, diseño, animaciones, accesibilidad |
+| **Backend** | APIs, bases de datos, lógica | Endpoints, modelos, seguridad, optimización |
+| **Marketer** | SEO, contenido, copywriting | Meta tags, textos persuasivos, estrategia digital |
+| **Investigador** | Análisis y documentación | Investigar soluciones, documentar código |
+| **Revisor** | QA, testing, code review | Validar calidad, detectar bugs, mejoras |
+
+### Comandos del Sistema
+
+| Comando | Propósito |
+|---|---|
+| `/team-plan <objetivo>` | Planificar tarea con equipo de agentes |
+| `/team-status` | Ver estado de tareas en progreso |
+| `/team-review` | Revisar resultados consolidados |
+
+### Ejemplo de Uso
+
+```bash
+/team-plan "crear sistema de autenticación con JWT"
+```
+
+El **director** automáticamente:
+1. ✅ Descompone el objetivo en subtareas
+2. ✅ Asigna tareas a agentes especializados:
+   - Arquitecto → Diseña estructura de auth
+   - Backend → Implementa JWT y endpoints
+   - Frontend → Crea formularios login/registro
+   - Revisor → Valida seguridad y tests
+3. ✅ Lanza agentes en paralelo (respetando dependencias)
+4. ✅ Consolida resultados en un reporte final
+
+### Arquitectura del Sistema
+
+```
+.opencode/
+├── agents/              # 7 agentes especializados
+│   ├── director.md
+│   ├── arquitecto.md
+│   ├── frontend.md
+│   ├── backend.md
+│   ├── marketer.md
+│   ├── investigador.md
+│   └── revisor.md
+├── commands/            # 3 comandos de equipo
+│   ├── team-plan.md
+│   ├── team-status.md
+│   └── team-review.md
+├── skills/
+│   └── multi-team/      # Skill de orquestación
+│       └── skill.md
+└── tools/
+    └── team-tasks.ts    # Gestión de tareas (TypeScript)
+```
+
+### Ventajas del Sistema Multi-Agente
+
+✨ **Ejecución paralela** - Múltiples agentes trabajan simultáneamente
+🎯 **Especialización** - Cada agente domina su área
+🔄 **Coordinación automática** - El director gestiona dependencias
+📊 **Trazabilidad** - Todas las tareas quedan registradas
+🚀 **Escalabilidad** - Agrega más agentes según necesites
 
 ---
 
