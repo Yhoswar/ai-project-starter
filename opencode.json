@@ -8,6 +8,8 @@
     "bash": "allow",
     "webfetch": "allow"
   },
-  "tools": {},
+  "tools": {
+    "team-tasks_*": true
+  },
   "mcp": {}
 }

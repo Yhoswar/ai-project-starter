@@ -1,9 +1,12 @@
 {
   "name": "@{PROJECT_NAME}/opencode",
   "version": "1.0.0",
-  "description": "OpenCode AI configuration for {PROJECT_NAME}",
+  "description": "OpenCode AI configuration with multi-agent system",
   "dependencies": {
     "@opencode-ai/plugin": "^1.2.25"
+  },
+  "scripts": {
+    "build": "echo 'Tools compiled on-demand by OpenCode'"
   },
   "private": true
 }
