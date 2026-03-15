@@ -1,0 +1,22 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git status)",
+      "Bash(git log)",
+      "Bash(git diff)",
+      "Bash(npm --version)",
+      "Bash(node --version)"
+    ],
+    "deny": [],
+    "ask": []
+  },
+  "preferences": {
+    "language": "{PREFERRED_LANGUAGE}",
+    "projectType": "{PROJECT_TYPE}",
+    "defaultBranch": "main"
+  },
+  "customPrompts": {
+    "beforeEdit": "Recuerda: {CUSTOM_REMINDER_1}",
+    "afterEdit": "Verifica que {CUSTOM_VERIFICATION_1}"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "name": "@{PROJECT_NAME}/opencode",
+  "version": "1.0.0",
+  "description": "OpenCode AI configuration for {PROJECT_NAME}",
+  "dependencies": {
+    "@opencode-ai/plugin": "^1.2.25"
+  },
+  "private": true
+}
