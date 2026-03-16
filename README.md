@@ -415,3 +415,117 @@ Este proyecto está bajo la Licencia MIT - ver el archivo [LICENSE](LICENSE) par
   <a href="#-qué-incluye">Contenido</a> •
   <a href="#-recursos">Recursos</a>
 </p>
+
+---
+
+## 🔀 Compatibilidad Dual-Platform
+
+Este template funciona con **múltiples plataformas de IA**, compartiendo el mismo sistema multi-agente.
+
+### Plataformas Soportadas
+
+| Plataforma | Estado | Carpeta | Uso |
+|------------|--------|---------|-----|
+| **Claude Code** (Anthropic) | ✅ Soportado | `.claude/` | Bridge a `.opencode/` |
+| **OpenCode** (OpenCode.ai) | ✅ Soportado | `.opencode/` | Fuente de verdad |
+| **OpenAI Codex CLI** | ⏳ Futuro | `.agents/` | Planeado |
+
+### ¿Por Qué Esta Arquitectura?
+
+#### ✅ Ventajas del Sistema Dual
+
+| Ventaja | Explicación |
+|---------|-------------|
+| **Sin duplicación** | `.opencode/` es la única fuente de verdad - actualiza SOLO ahí |
+| **Máxima compatibilidad** | Funciona en múltiples plataformas sin cambios |
+| **Fácil mantenimiento** | Un solo lugar para actualizar agentes/comandos |
+| **Auto-sincronización** | El bridge lee siempre la versión actual - no hay desincronización |
+
+### Uso Según Tu Plataforma
+
+#### 🟦 Si usas **Claude Code**
+
+Los comandos `/team-*` funcionan automáticamente:
+
+```bash
+# Planificar tarea compleja
+/team-plan "implementar autenticación JWT"
+
+# Ver estado de tareas
+/team-status
+
+# Revisar resultados
+/team-review
+```
+
+**Qué pasa internamente:**
+- ✅ Skill `opencode-bridge` se auto-invoca
+- ✅ Lee archivos de `.opencode/`
+- ✅ Ejecuta usando Task tool
+- ✅ Guarda estado en `.opencode/team/tasks.json`
+
+#### 🟩 Si usas **OpenCode**
+
+Usa directamente los comandos de `.opencode/`:
+
+```bash
+# Planificar tarea
+opencode team-plan "implementar feature X"
+
+# Ver estado
+opencode team-status
+
+# Revisar resultados
+opencode team-review
+```
+
+### Agregar Nuevos Agentes
+
+**Solo actualiza en `.opencode/agents/`** - ambas plataformas verán el cambio automáticamente.
+
+```bash
+# 1. Crea el agente
+.opencode/agents/devops.md
+
+# 2. Úsalo desde el director
+/team-plan "configurar CI/CD pipeline"
+→ Director lee devops.md y lo incluye en el plan
+```
+
+**NO necesitas:**
+- ❌ Duplicar el agente en `.claude/`
+- ❌ Reiniciar ninguna plataforma
+- ❌ Configurar nada adicional
+
+### Troubleshooting
+
+#### ❌ "No puedo leer .opencode/"
+
+**Solución:** Verifica permisos en `.claude/settings.local.json`:
+```json
+{
+  "permission": {
+    "read": { ".opencode/**": "allow" }
+  }
+}
+```
+
+#### ❌ "Skill opencode-bridge no se invoca"
+
+**Solución:** Verifica que está en auto_invoke:
+```json
+{
+  "auto_invoke_skills": ["opencode-bridge"]
+}
+```
+
+### Recursos Adicionales
+
+- **Sistema completo**: `.opencode/README.md`
+- **Skill puente**: `.claude/skills/opencode-bridge/skill.md`
+- **Documentación**: `CLAUDE.md` (sección Sistema Multi-Agente)
+
+---
+
+**Recuerda:** El sistema dual permite máxima compatibilidad con cero duplicación. ✨
+
