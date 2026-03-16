@@ -194,6 +194,9 @@ claude plugin install superpowers@superpowers-marketplace
 
 # Memoria persistente entre sesiones
 claude plugin install claude-mem@thedotmack
+
+# Reducción de contexto en tiempo real (sesiones largas, output pesado)
+claude plugin install context-mode@mksglu
 ```
 
 **Para Proyectos Frontend:**
@@ -321,6 +324,7 @@ Ajusta los permisos según las necesidades de tu proyecto:
 | **UI/UX Pro Max** | `ui-ux-pro-max@ui-ux-pro-max-skill` | Design System Generator + 99 UX Guidelines + UI Trends 2025 |
 | **Code Review** | `code-review@claude-plugins-official` | Revisión automática con 5 agentes Sonnet en paralelo |
 | **Skill Creator** | `skill-creator@claude-plugins-official` | Crear y validar skills personalizados interactivamente |
+| **Context Mode** | `context-mode@mksglu` | Reducción de contexto en tiempo real: sandbox de ejecución, indexación in-session, filtrado de output |
 
 ---
 
