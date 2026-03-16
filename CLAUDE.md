@@ -91,12 +91,47 @@ Claude Code tiene plugins activos que se auto-invocan cuando es relevante:
 | Plugin | Versión | Propósito | Activación |
 |---|---|---|---|
 | **{PLUGIN_NAME}** | {VERSION} | {PURPOSE} | {WHEN_TO_ACTIVATE} |
+| **Context Mode** | latest (mksglu) | Reduce context window en tiempo real: sandbox de ejecución, indexación in-session | Sesiones largas o con output pesado |
+| **Claude Mem** | latest (thedotmack) | Memoria persistente entre sesiones con compresión IA | Siempre activo (cross-session memory) |
 
 ### MCP Servers Activos / Active MCP Servers
 
 | Server | Estado | Propósito |
 |---|---|---|
 | **{MCP_SERVER_NAME}** | {STATUS} | {PURPOSE} |
+
+## Gestión de Contexto / Context Management
+
+Dos sistemas **complementarios** con responsabilidades distintas — NO son rivales:
+
+    SESIÓN ANTERIOR → [claude-mem guarda] → SESIÓN ACTUAL → [claude-mem provee] → SESIÓN FUTURA
+                                                  ↑
+                                        [context-mode filtra output,
+                                         indexa docs, reduce tokens]
+
+| Dimensión | **context-mode** (mksglu) | **claude-mem** (thedotmack) |
+|---|---|---|
+| ¿Cuándo opera? | Durante la sesión activa | Entre sesiones (cross-session) |
+| ¿Qué guarda? | Output filtrado, docs indexadas this-session | Decisiones, bugs, aprendizajes permanentes |
+| Duración | Efímero (muere con la sesión) | Persistente (SQLite permanente) |
+| Búsqueda | Docs cargadas **esta sesión** | Historia de trabajo **pasado** |
+
+### Protocolo de uso — cuándo usar cada uno
+
+**Usa `ctx_execute`** → ejecutar comandos con output largo sin volcar todo al contexto
+**Usa `ctx_fetch_and_index` + `ctx_search`** → cargar y consultar documentación externa esta sesión
+**Usa `ctx_execute_file`** → procesar archivos grandes sin exponer contenido crudo
+**Usa `ctx_stats`** → ver cuántos tokens se han ahorrado en la sesión
+
+**Usa `mcp__plugin_claude-mem_mcp-search__smart_search`** → "¿ya resolvimos esto antes?", recuperar decisiones pasadas
+**Usa `mcp__plugin_claude-mem_mcp-search__get_observations`** → recuperar un bloque específico de trabajo pasado por ID
+
+### Regla de oro
+
+> **context-mode** = *"¿Cómo ejecuto esto sin saturar el contexto HOY?"*
+> **claude-mem** = *"¿Qué sabíamos sobre esto de sesiones ANTERIORES?"*
+
+---
 
 ## Skills Disponibles / Available Skills
 
