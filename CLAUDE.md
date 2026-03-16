@@ -91,47 +91,12 @@ Claude Code tiene plugins activos que se auto-invocan cuando es relevante:
 | Plugin | Versión | Propósito | Activación |
 |---|---|---|---|
 | **{PLUGIN_NAME}** | {VERSION} | {PURPOSE} | {WHEN_TO_ACTIVATE} |
-| **Context Mode** | latest (mksglu) | Reduce context window en tiempo real: sandbox de ejecución, indexación in-session | Sesiones largas o con output pesado |
-| **Claude Mem** | latest (thedotmack) | Memoria persistente entre sesiones con compresión IA | Siempre activo (cross-session memory) |
 
 ### MCP Servers Activos / Active MCP Servers
 
 | Server | Estado | Propósito |
 |---|---|---|
 | **{MCP_SERVER_NAME}** | {STATUS} | {PURPOSE} |
-
-## Gestión de Contexto / Context Management
-
-Dos sistemas **complementarios** con responsabilidades distintas — NO son rivales:
-
-    SESIÓN ANTERIOR → [claude-mem guarda] → SESIÓN ACTUAL → [claude-mem provee] → SESIÓN FUTURA
-                                                  ↑
-                                        [context-mode filtra output,
-                                         indexa docs, reduce tokens]
-
-| Dimensión | **context-mode** (mksglu) | **claude-mem** (thedotmack) |
-|---|---|---|
-| ¿Cuándo opera? | Durante la sesión activa | Entre sesiones (cross-session) |
-| ¿Qué guarda? | Output filtrado, docs indexadas this-session | Decisiones, bugs, aprendizajes permanentes |
-| Duración | Efímero (muere con la sesión) | Persistente (SQLite permanente) |
-| Búsqueda | Docs cargadas **esta sesión** | Historia de trabajo **pasado** |
-
-### Protocolo de uso — cuándo usar cada uno
-
-**Usa `ctx_execute`** → ejecutar comandos con output largo sin volcar todo al contexto
-**Usa `ctx_fetch_and_index` + `ctx_search`** → cargar y consultar documentación externa esta sesión
-**Usa `ctx_execute_file`** → procesar archivos grandes sin exponer contenido crudo
-**Usa `ctx_stats`** → ver cuántos tokens se han ahorrado en la sesión
-
-**Usa `mcp__plugin_claude-mem_mcp-search__smart_search`** → "¿ya resolvimos esto antes?", recuperar decisiones pasadas
-**Usa `mcp__plugin_claude-mem_mcp-search__get_observations`** → recuperar un bloque específico de trabajo pasado por ID
-
-### Regla de oro
-
-> **context-mode** = *"¿Cómo ejecuto esto sin saturar el contexto HOY?"*
-> **claude-mem** = *"¿Qué sabíamos sobre esto de sesiones ANTERIORES?"*
-
----
 
 ## Skills Disponibles / Available Skills
 
@@ -219,73 +184,42 @@ Después de inicializar el proyecto, reemplaza todos los placeholders marcados c
 
 *Este es un template genérico. Personalízalo según las necesidades de tu proyecto.*
 
+---
+
+## Recommended Skills (Claude Code)
+
+Install via `scripts/install-skills.sh` or manually via Claude Code plugin manager.
+
+### Always Install
+- `security` — every project needs security review
+- `frontend-design` — UI/component work
+- `scalability` — before any production deployment
+- `superpowers` — TDD, debugging, brainstorming, planning workflows
+
+### By Project Type
+| Template | Additional Skills |
+|----------|------------------|
+| next-saas | `ui-ux-pro-max`, `claude-api` |
+| api-service | `scalability`, `security` |
+| automation | `trigger-dev`, `composio`, `n8n` |
 
 ---
 
-## Sistema Multi-Agente (Dual-Platform)
+## Memory System
 
-Este template soporta **dos plataformas de IA** con un sistema único de agentes especializados.
+This repo includes a `memory/` folder with Claude memory templates.
 
-### Plataformas Compatibles
+1. Copy `memory/MEMORY.md` to your project root
+2. Fill in your project details
+3. Claude will read it at session start and maintain context across conversations
 
-| Plataforma | Carpeta | Estado | Uso |
-|------------|---------|--------|-----|
-| **Claude Code** (Anthropic) | `.claude/` | ✅ Soportado | Bridge a `.opencode/` |
-| **OpenCode** (OpenCode.ai) | `.opencode/` | ✅ Soportado | Fuente de verdad |
-| **OpenAI Codex CLI** | `.agents/` | ⏳ Futuro | Planeado |
-
-### Arquitectura del Sistema
-
-El sistema multi-agente está ubicado en `.opencode/` como **fuente de verdad única**. Claude Code accede mediante un **skill puente** ubicado en `.claude/skills/opencode-bridge/`.
-
-### Uso en Claude Code
-
-Los comandos `/team-*` funcionan automáticamente:
-
-```bash
-# Planificar tarea compleja
-/team-plan "implementar autenticación JWT con refresh tokens"
-
-# Ver estado de tareas
-/team-status
-
-# Revisar resultados y calidad
-/team-review
-```
-
-**Workflow interno:**
-1. Skill `opencode-bridge` se **auto-invoca**
-2. **Lee** archivos en `.opencode/` (comandos + agentes)
-3. **Ejecuta** según instrucciones
-4. **Guarda estado** en `.opencode/team/tasks.json`
-
-### Convenciones del Sistema
-
-#### 🎯 Reglas Obligatorias
-
-1. **Fuente de verdad**: `.opencode/` es LA fuente de verdad
-   - ❌ NO duplicar agentes en `.claude/`
-   - ✅ SIEMPRE leer desde `.opencode/`
-
-2. **Lectura obligatoria**: SIEMPRE lee los `.md` antes de actuar
-   - ❌ NO asumir comportamiento de agentes
-   - ✅ Lee el archivo completo y sigue sus instrucciones
-
-3. **Coordina con director**: El director SIEMPRE coordina
-   - ❌ NO lanzar agentes sin pasar por director
-   - ✅ Director decide qué agentes usar y cómo
-
-4. **Estado persistente**: Usa `.opencode/team/tasks.json`
-   - ❌ NO perder contexto entre ejecuciones
-   - ✅ Lee/escribe estado para continuidad
-
-### Recursos Adicionales
-
-- **Sistema completo**: `.opencode/README.md`
-- **Cada agente**: `.opencode/agents/{agente}.md`
-- **Skill de orquestación**: `.opencode/skills/multi-team/skill.md`
-- **Skill puente**: `.claude/skills/opencode-bridge/skill.md`
+For cross-session persistent memory, also use the `claude-mem` MCP plugin.
 
 ---
 
-**Nota:** Este sistema de bridge permite que Claude Code use el mismo sistema multi-agente que OpenCode, sin duplicar código.
+## Project Context (fill in when starting a project)
+
+- **Project name:** [NAME]
+- **Stack:** [STACK]
+- **Current focus:** [WHAT YOU'RE BUILDING]
+- **Key constraints:** [DEADLINES, TECH CONSTRAINTS]

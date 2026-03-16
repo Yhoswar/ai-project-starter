@@ -1,535 +1,86 @@
-# 🤖 AI Project Starter
+# ai-project-starter
 
-> Universal template for AI-ready projects with **Claude Code** & **OpenCode** configuration
+> The AI-native project starter: multi-agent Claude Code configuration + three production-ready templates.
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Claude Code](https://img.shields.io/badge/Claude%20Code-Ready-blue)](https://claude.com/code)
-[![OpenCode](https://img.shields.io/badge/OpenCode-Compatible-green)](https://opencode.ai/)
+[![CI](https://github.com/Yhoswar/ai-project-starter/actions/workflows/ci.yml/badge.svg)](https://github.com/Yhoswar/ai-project-starter/actions/workflows/ci.yml)
 
----
+## What's Inside
 
-## 🎯 ¿Qué es esto?
+Two independent layers:
 
-Un template **listo para usar** que configura automáticamente tu proyecto para trabajar con agentes de IA como **Claude Code** y **OpenCode**.
+**1. AI Config Layer** — Works with any codebase
+- 7 specialized Claude Code agents (Director, Architect, Frontend, Backend, Marketer, Researcher, Reviewer)
+- Slash commands: `/team-plan`, `/team-status`, `/team-review`
+- `MEMORY.md` system for project context across sessions
+- Compatible with Claude Code and OpenCode
 
-En lugar de configurar manualmente archivos `CLAUDE.md`, `AGENTS.md`, `.claude/` y `.opencode/` en cada proyecto nuevo, **simplemente usa este template y ejecuta un script de inicialización**.
+**2. Application Templates** — Production-ready starters
+| Template | Stack | Best for |
+|----------|-------|----------|
+| `next-saas` | Next.js 15 + Auth.js + Drizzle + shadcn/ui | SaaS, dashboards, web apps |
+| `api-service` | Bun + Hono + Drizzle + Zod | REST APIs, microservices |
+| `automation` | Trigger.dev + Composio + n8n | Background jobs, workflows, integrations |
 
----
+## Quick Start
 
-## ✨ Características
+### Option A: Use a Template
+```bash
+git clone https://github.com/Yhoswar/ai-project-starter.git
+cd ai-project-starter
 
-- ✅ **Estructura `.claude/`** completa con settings, skills y commands
-- ✅ **Estructura `.opencode/`** con configuración base
-- ✅ **Archivos `CLAUDE.md` y `AGENTS.md`** genéricos con placeholders
-- ✅ **Scripts de inicialización** interactivos (bash y PowerShell)
-- ✅ **Agnóstico de tecnología** - funciona con React, PHP, Python, Next.js, etc.
-- ✅ **Listo para GitHub** - configurado como template repository
-- ✅ **Documentación incluida** - guías y mejores prácticas
-- ✅ **Sistema multi-agente** - 7 agentes especializados con orquestación automática
+# Copy your chosen template
+cp -r templates/next-saas ../my-project
+cd ../my-project
 
----
+bun install
+cp .env.example .env  # Fill in your values
+bun db:push
+bun dev
+```
 
-## 🤖 Sistema Multi-Agente Incluido
+### Option B: Add AI Agents to Existing Project
+```bash
+cp -r ai-project-starter/.claude your-project/
+cp ai-project-starter/CLAUDE.md your-project/
+cp ai-project-starter/AGENTS.md your-project/
+cp -r ai-project-starter/memory your-project/
+```
 
-Este template incluye un **sistema de orquestación con 7 agentes especializados** listo para usar, que permite ejecutar tareas complejas en paralelo con coordinación automática.
+### Option C: Run the Init Script
+```bash
+./init-project.sh        # bash/zsh
+./init-project.ps1       # PowerShell (Windows)
+```
 
-### Agentes Disponibles
+## Install Skills Globally
 
-| Agente | Especialización | Cuándo Usarlo |
-|---|---|---|
-| **Director** | Coordinación y planificación | Coordina equipos, descompone objetivos complejos |
-| **Arquitecto** | Diseño de sistemas y estructura | Decisiones de arquitectura, patrones, escalabilidad |
-| **Frontend** | UI/UX, HTML, CSS, JS, React | Interfaces, diseño, animaciones, accesibilidad |
-| **Backend** | APIs, bases de datos, lógica | Endpoints, modelos, seguridad, optimización |
-| **Marketer** | SEO, contenido, copywriting | Meta tags, textos persuasivos, estrategia digital |
-| **Investigador** | Análisis y documentación | Investigar soluciones, documentar código |
-| **Revisor** | QA, testing, code review | Validar calidad, detectar bugs, mejoras |
-
-### Comandos del Sistema
-
-| Comando | Propósito |
-|---|---|
-| `/team-plan <objetivo>` | Planificar tarea con equipo de agentes |
-| `/team-status` | Ver estado de tareas en progreso |
-| `/team-review` | Revisar resultados consolidados |
-
-### Ejemplo de Uso
+Make skills available in all your Claude Code projects:
 
 ```bash
-/team-plan "crear sistema de autenticación con JWT"
+# bash/zsh
+./scripts/install-skills.sh
+
+# PowerShell (Windows)
+./scripts/install-skills.ps1
 ```
 
-El **director** automáticamente:
-1. ✅ Descompone el objetivo en subtareas
-2. ✅ Asigna tareas a agentes especializados:
-   - Arquitecto → Diseña estructura de auth
-   - Backend → Implementa JWT y endpoints
-   - Frontend → Crea formularios login/registro
-   - Revisor → Valida seguridad y tests
-3. ✅ Lanza agentes en paralelo (respetando dependencias)
-4. ✅ Consolida resultados en un reporte final
+Or install manually: see [docs/skills-guide.md](docs/skills-guide.md)
 
-### Arquitectura del Sistema
+## Documentation
 
-```
-.opencode/
-├── agents/              # 7 agentes especializados
-│   ├── director.md
-│   ├── arquitecto.md
-│   ├── frontend.md
-│   ├── backend.md
-│   ├── marketer.md
-│   ├── investigador.md
-│   └── revisor.md
-├── commands/            # 3 comandos de equipo
-│   ├── team-plan.md
-│   ├── team-status.md
-│   └── team-review.md
-├── skills/
-│   └── multi-team/      # Skill de orquestación
-│       └── skill.md
-└── tools/
-    └── team-tasks.ts    # Gestión de tareas (TypeScript)
-```
+- [Getting Started](docs/getting-started.md)
+- [Skills Guide](docs/skills-guide.md) — Which skills to install for each project type
+- [Memory Guide](docs/memory-guide.md) — How to use MEMORY.md and claude-mem
+- [Agents Guide](docs/agents-guide.md) — How the multi-agent system works
 
-### Ventajas del Sistema Multi-Agente
+## Platform Support
 
-✨ **Ejecución paralela** - Múltiples agentes trabajan simultáneamente
-🎯 **Especialización** - Cada agente domina su área
-🔄 **Coordinación automática** - El director gestiona dependencias
-📊 **Trazabilidad** - Todas las tareas quedan registradas
-🚀 **Escalabilidad** - Agrega más agentes según necesites
+| Platform | Status |
+|----------|--------|
+| Claude Code | ✅ Full support |
+| OpenCode | ✅ Full support |
+| Gemini CLI | 🔜 Via bridge skill |
 
----
+## License
 
-## 🚀 Uso Rápido
-
-### Opción A: Usar como Template en GitHub
-
-1. Haz clic en **"Use this template"** en la página del repositorio
-2. Dale un nombre a tu nuevo proyecto
-3. Clona tu nuevo repositorio
-4. Ejecuta el script de inicialización:
-
-```bash
-# Linux/Mac/Git Bash
-./init-project.sh
-
-# Windows PowerShell
-.\init-project.ps1
-```
-
-### Opción B: Clonar y Configurar
-
-```bash
-# Clonar el template
-git clone https://github.com/yhoswarperez/ai-project-starter.git mi-proyecto
-
-# Entrar al directorio
-cd mi-proyecto
-
-# Ejecutar inicialización (Linux/Mac/Git Bash)
-./init-project.sh
-
-# O en Windows PowerShell:
-# .\init-project.ps1
-```
-
----
-
-## 📦 ¿Qué Incluye?
-
-```
-ai-project-starter/
-├── .claude/
-│   ├── README.md                # Guía de uso de Claude Code
-│   ├── settings.local.json      # Configuración de permisos y preferencias
-│   ├── skills/                  # Carpeta para skills personalizados
-│   └── commands/                # Carpeta para slash commands
-│
-├── .opencode/
-│   └── package.json             # Dependencias de OpenCode
-│
-├── CLAUDE.md                     # Documentación para Claude Code (genérico)
-├── AGENTS.md                     # Documentación de arquitectura (genérico)
-├── opencode.json                 # Configuración de OpenCode
-├── init-project.sh               # Script de inicialización (bash)
-├── init-project.ps1              # Script de inicialización (PowerShell)
-├── .gitignore                    # Ignorar archivos comunes
-└── README.md                     # Este archivo
-```
-
----
-
-## 🔧 Script de Inicialización
-
-El script interactivo te pedirá:
-
-- 📝 **Nombre del proyecto**
-- 📝 **Descripción**
-- 🌐 **URL del sitio web** (opcional)
-- 📧 **Email de contacto** (opcional)
-- 🗣️ **Idioma de respuesta preferido** (español, inglés, etc.)
-- 📱 **Tipo de proyecto** (React, PHP, Next.js, Python, etc.)
-- 🌍 **Idioma principal del contenido**
-
-Luego:
-1. ✅ Reemplaza automáticamente los placeholders en los archivos
-2. ✅ Instala dependencias de OpenCode (`npm install`)
-3. ✅ Muestra un checklist de próximos pasos
-
----
-
-## 📋 Próximos Pasos Después de Inicializar
-
-Una vez ejecutado el script, deberás:
-
-### 1. Instalar Claude Code Skills Globales (Recomendado)
-
-**Esenciales (instalar primero):**
-
-```bash
-# Framework de desarrollo ágil con 20+ skills
-claude plugin install superpowers@superpowers-marketplace
-
-# Memoria persistente entre sesiones
-claude plugin install claude-mem@thedotmack
-
-# Reducción de contexto en tiempo real (sesiones largas, output pesado)
-claude plugin install context-mode@mksglu
-```
-
-**Para Proyectos Frontend:**
-
-```bash
-# Guía de diseño bold y tipografía
-claude plugin install frontend-design@claude-plugins-official
-
-# Design System Generator + 99 UX Guidelines + UI Trends 2025
-claude plugin install ui-ux-pro-max@ui-ux-pro-max-skill
-```
-
-**Para Code Review y Quality:**
-
-```bash
-# Revisión automática con 5 agentes paralelos
-claude plugin install code-review@claude-plugins-official
-```
-
-**Para Extensibilidad (Opcional):**
-
-```bash
-# Crear y validar skills personalizados
-claude plugin install skill-creator@claude-plugins-official
-```
-
-### 2. Personalizar `CLAUDE.md`
-
-Completa los placeholders restantes (`{PLACEHOLDER}`):
-- Arquitectura específica del proyecto
-- Convenciones de código
-- Stack tecnológico
-- Reglas importantes
-
-### 3. Personalizar `AGENTS.md`
-
-- Estructura de archivos real
-- Componentes principales
-- Rutas/páginas
-- Comandos útiles
-
-### 4. Crear `.claude/agents.md`
-
-Puedes copiar `AGENTS.md` o crear una versión más detallada:
-
-```bash
-cp AGENTS.md .claude/agents.md
-```
-
-### 5. Agregar Skills Personalizados
-
-Crea archivos en `.claude/skills/` para guías especializadas:
-
-**Ejemplo:** `.claude/skills/database-conventions.md`
-
-```markdown
----
-name: database-conventions
-description: Convenciones de base de datos del proyecto
----
-
-# Database Conventions
-
-## Schema Naming
-...
-```
-
-### 6. Agregar Slash Commands
-
-Crea comandos personalizados en `.claude/commands/`:
-
-**Ejemplo:** `.claude/commands/add-component.md`
-
-```markdown
----
-name: add-component
-description: Crear un nuevo componente con estructura estándar
----
-
-# Add Component
-
-Crea un nuevo componente con:
-1. Archivo del componente
-2. Archivo de estilos
-3. Archivo de tests
-...
-```
-
-### 7. Configurar Permisos en `settings.local.json`
-
-Ajusta los permisos según las necesidades de tu proyecto:
-
-```json
-{
-  "permissions": {
-    "allow": [
-      "Bash(git status)",
-      "Bash(npm run build)"
-    ],
-    "deny": [
-      "Bash(rm -rf *)"
-    ],
-    "ask": []
-  }
-}
-```
-
----
-
-## 📚 Recursos
-
-### Documentación Oficial
-
-- [Claude Code Docs](https://docs.claude.com/en/docs/claude-code)
-- [OpenCode Docs](https://opencode.ai/docs)
-- [Superpowers Framework](https://github.com/obra/superpowers)
-
-### Skills Recomendados
-
-| Skill | Marketplace | Propósito |
-|---|---|---|
-| **Superpowers** | `superpowers@superpowers-marketplace` | Framework de desarrollo ágil con 20+ skills integrados |
-| **Claude Mem** | `claude-mem@thedotmack` | Memoria persistente entre sesiones con compresión IA |
-| **Frontend Design** | `frontend-design@claude-plugins-official` | Guía de diseño bold, tipografía y animaciones |
-| **UI/UX Pro Max** | `ui-ux-pro-max@ui-ux-pro-max-skill` | Design System Generator + 99 UX Guidelines + UI Trends 2025 |
-| **Code Review** | `code-review@claude-plugins-official` | Revisión automática con 5 agentes Sonnet en paralelo |
-| **Skill Creator** | `skill-creator@claude-plugins-official` | Crear y validar skills personalizados interactivamente |
-| **Context Mode** | `context-mode@mksglu` | Reducción de contexto en tiempo real: sandbox de ejecución, indexación in-session, filtrado de output |
-
----
-
-## 🎨 Ejemplos de Uso
-
-### Proyecto React
-
-```bash
-./init-project.sh
-# Nombre: my-react-app
-# Tipo: React
-# Idioma: español
-
-# Luego personaliza:
-# - CLAUDE.md → Agrega convenciones de React
-# - AGENTS.md → Documenta componentes y rutas
-# - .claude/skills/component-patterns.md
-```
-
-### Proyecto PHP
-
-```bash
-./init-project.sh
-# Nombre: my-php-app
-# Tipo: PHP
-# Idioma: español
-
-# Luego personaliza:
-# - CLAUDE.md → Agrega convenciones de PHP
-# - AGENTS.md → Documenta estructura de archivos
-# - .claude/skills/php-security.md
-```
-
-### Proyecto Next.js
-
-```bash
-./init-project.sh
-# Nombre: my-nextjs-app
-# Tipo: Next.js
-# Idioma: inglés
-
-# Luego personaliza:
-# - CLAUDE.md → Agrega convenciones de Next.js
-# - AGENTS.md → Documenta páginas y API routes
-# - .claude/commands/create-page.md
-```
-
----
-
-## 🤝 Contribuir
-
-¿Tienes ideas para mejorar el template? ¡PRs bienvenidos!
-
-1. Fork el proyecto
-2. Crea tu feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit tus cambios (`git commit -m 'Add amazing feature'`)
-4. Push a la rama (`git push origin feature/amazing-feature`)
-5. Abre un Pull Request
-
----
-
-## 📄 Licencia
-
-Este proyecto está bajo la Licencia MIT - ver el archivo [LICENSE](LICENSE) para más detalles.
-
----
-
-## 🙏 Agradecimientos
-
-- [Anthropic](https://www.anthropic.com/) - Claude Code
-- [OpenCode.ai](https://opencode.ai/) - OpenCode AI
-- [obra](https://github.com/obra) - Superpowers Framework
-- Comunidad de desarrolladores que trabajan con IA
-
----
-
-## 📞 Soporte
-
-- 📧 Email: yhoswarperez@gmail.com
-- 🐛 Issues: [GitHub Issues](https://github.com/yhoswarperez/ai-project-starter/issues)
-- 💬 Discusiones: [GitHub Discussions](https://github.com/yhoswarperez/ai-project-starter/discussions)
-
----
-
-<p align="center">
-  Hecho con ❤️ para la comunidad de desarrolladores que usan IA
-</p>
-
-<p align="center">
-  <a href="#-qué-es-esto">Inicio</a> •
-  <a href="#-uso-rápido">Uso</a> •
-  <a href="#-qué-incluye">Contenido</a> •
-  <a href="#-recursos">Recursos</a>
-</p>
-
----
-
-## 🔀 Compatibilidad Dual-Platform
-
-Este template funciona con **múltiples plataformas de IA**, compartiendo el mismo sistema multi-agente.
-
-### Plataformas Soportadas
-
-| Plataforma | Estado | Carpeta | Uso |
-|------------|--------|---------|-----|
-| **Claude Code** (Anthropic) | ✅ Soportado | `.claude/` | Bridge a `.opencode/` |
-| **OpenCode** (OpenCode.ai) | ✅ Soportado | `.opencode/` | Fuente de verdad |
-| **OpenAI Codex CLI** | ⏳ Futuro | `.agents/` | Planeado |
-
-### ¿Por Qué Esta Arquitectura?
-
-#### ✅ Ventajas del Sistema Dual
-
-| Ventaja | Explicación |
-|---------|-------------|
-| **Sin duplicación** | `.opencode/` es la única fuente de verdad - actualiza SOLO ahí |
-| **Máxima compatibilidad** | Funciona en múltiples plataformas sin cambios |
-| **Fácil mantenimiento** | Un solo lugar para actualizar agentes/comandos |
-| **Auto-sincronización** | El bridge lee siempre la versión actual - no hay desincronización |
-
-### Uso Según Tu Plataforma
-
-#### 🟦 Si usas **Claude Code**
-
-Los comandos `/team-*` funcionan automáticamente:
-
-```bash
-# Planificar tarea compleja
-/team-plan "implementar autenticación JWT"
-
-# Ver estado de tareas
-/team-status
-
-# Revisar resultados
-/team-review
-```
-
-**Qué pasa internamente:**
-- ✅ Skill `opencode-bridge` se auto-invoca
-- ✅ Lee archivos de `.opencode/`
-- ✅ Ejecuta usando Task tool
-- ✅ Guarda estado en `.opencode/team/tasks.json`
-
-#### 🟩 Si usas **OpenCode**
-
-Usa directamente los comandos de `.opencode/`:
-
-```bash
-# Planificar tarea
-opencode team-plan "implementar feature X"
-
-# Ver estado
-opencode team-status
-
-# Revisar resultados
-opencode team-review
-```
-
-### Agregar Nuevos Agentes
-
-**Solo actualiza en `.opencode/agents/`** - ambas plataformas verán el cambio automáticamente.
-
-```bash
-# 1. Crea el agente
-.opencode/agents/devops.md
-
-# 2. Úsalo desde el director
-/team-plan "configurar CI/CD pipeline"
-→ Director lee devops.md y lo incluye en el plan
-```
-
-**NO necesitas:**
-- ❌ Duplicar el agente en `.claude/`
-- ❌ Reiniciar ninguna plataforma
-- ❌ Configurar nada adicional
-
-### Troubleshooting
-
-#### ❌ "No puedo leer .opencode/"
-
-**Solución:** Verifica permisos en `.claude/settings.local.json`:
-```json
-{
-  "permission": {
-    "read": { ".opencode/**": "allow" }
-  }
-}
-```
-
-#### ❌ "Skill opencode-bridge no se invoca"
-
-**Solución:** Verifica que está en auto_invoke:
-```json
-{
-  "auto_invoke_skills": ["opencode-bridge"]
-}
-```
-
-### Recursos Adicionales
-
-- **Sistema completo**: `.opencode/README.md`
-- **Skill puente**: `.claude/skills/opencode-bridge/skill.md`
-- **Documentación**: `CLAUDE.md` (sección Sistema Multi-Agente)
-
----
-
-**Recuerda:** El sistema dual permite máxima compatibilidad con cero duplicación. ✨
-
+MIT
