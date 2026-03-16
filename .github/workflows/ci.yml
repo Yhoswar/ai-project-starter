@@ -5,12 +5,26 @@ on:
     branches: [main, develop]
     paths:
       - 'templates/**'
+      - 'scripts/**'
+      - '.github/workflows/**'
   pull_request:
     branches: [main]
     paths:
       - 'templates/**'
+      - 'scripts/**'
+      - '.github/workflows/**'
 
 jobs:
+  validate-scripts:
+    name: Validate shell scripts
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check bash syntax
+        run: |
+          bash -n scripts/install-skills.sh
+          echo "✅ install-skills.sh syntax OK"
+
   check:
     name: Lint, Type-check & Test
     runs-on: ubuntu-latest
