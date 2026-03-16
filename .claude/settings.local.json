@@ -1,22 +1,41 @@
 {
-  "permissions": {
-    "allow": [
-      "Bash(git status)",
-      "Bash(git log)",
-      "Bash(git diff)",
-      "Bash(npm --version)",
-      "Bash(node --version)"
-    ],
-    "deny": [],
-    "ask": []
+  "$schema": "https://docs.claude.com/schemas/settings.json",
+  
+  "permission": {
+    "skill": {
+      "*": "allow"
+    },
+    "edit": "allow",
+    "bash": "allow",
+    "webfetch": "allow",
+    "read": {
+      "*": "allow",
+      ".opencode/**": "allow"
+    },
+    "write": {
+      "*": "ask",
+      ".opencode/team/**": "allow"
+    }
   },
-  "preferences": {
-    "language": "{PREFERRED_LANGUAGE}",
-    "projectType": "{PROJECT_TYPE}",
-    "defaultBranch": "main"
+
+  "auto_invoke_skills": [
+    "opencode-bridge"
+  ],
+
+  "statusline": {
+    "enabled": true,
+    "format": "{PROJECT_NAME} | {BRANCH} | {AGENT_STATUS}"
   },
-  "customPrompts": {
-    "beforeEdit": "Recuerda: {CUSTOM_REMINDER_1}",
-    "afterEdit": "Verifica que {CUSTOM_VERIFICATION_1}"
+
+  "hooks": {
+    "pre_task": [],
+    "post_task": [],
+    "pre_commit": [],
+    "post_commit": []
+  },
+
+  "experimental": {
+    "multi_agent": true,
+    "parallel_tasks": true
   }
 }
