@@ -119,21 +119,22 @@
 
 ---
 
-## Seguridad / Security
+## Security Guidelines for All Agents
 
-### Medidas Implementadas / Implemented Measures
+### Mandatory Rules
+1. **Never output secrets** — Never log, print, or expose API keys, tokens, or credentials in any output
+2. **Validate inputs** — All user inputs must be validated before processing
+3. **Use parameterized queries** — Never concatenate user input into SQL strings
+4. **Escape outputs** — HTML-escape any user content rendered in UI
+5. **Principle of least privilege** — Request only the permissions actually needed for the task
+6. **Fail closed** — On errors, deny access rather than grant it
+7. **No hardcoded credentials** — All secrets come from environment variables
 
-1. **{SECURITY_MEASURE_1}**
-   - {DESCRIPTION}
-   - Implementación: {IMPLEMENTATION_PATH}
-
-2. **{SECURITY_MEASURE_2}**
-   - {DESCRIPTION}
-   - Implementación: {IMPLEMENTATION_PATH}
-
-3. **{SECURITY_MEASURE_3}**
-   - {DESCRIPTION}
-   - Implementación: {IMPLEMENTATION_PATH}
+### When Writing Code
+- Apply the `security` skill for authentication, API endpoints, form handling, and DB queries
+- Add rate limiting to all public-facing endpoints
+- Use HTTPS and set security headers (CSP, HSTS, X-Frame-Options)
+- Validate file uploads: type, size, and content
 
 ---
 

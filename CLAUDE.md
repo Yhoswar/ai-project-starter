@@ -183,3 +183,43 @@ Después de inicializar el proyecto, reemplaza todos los placeholders marcados c
 ---
 
 *Este es un template genérico. Personalízalo según las necesidades de tu proyecto.*
+
+---
+
+## Recommended Skills (Claude Code)
+
+Install via `scripts/install-skills.sh` or manually via Claude Code plugin manager.
+
+### Always Install
+- `security` — every project needs security review
+- `frontend-design` — UI/component work
+- `scalability` — before any production deployment
+- `superpowers` — TDD, debugging, brainstorming, planning workflows
+
+### By Project Type
+| Template | Additional Skills |
+|----------|------------------|
+| next-saas | `ui-ux-pro-max`, `claude-api` |
+| api-service | `scalability`, `security` |
+| automation | `trigger-dev`, `composio`, `n8n` |
+
+---
+
+## Memory System
+
+This repo includes a `memory/` folder with Claude memory templates.
+
+1. Copy `memory/MEMORY.md` to your project root
+2. Fill in your project details
+3. Claude will read it at session start and maintain context across conversations
+
+For cross-session persistent memory, also use the `claude-mem` MCP plugin.
+
+---
+
+## Project Context (fill in when starting a project)
+
+- **Project name:** [NAME]
+- **Stack:** [STACK]
+- **Current focus:** [WHAT YOU'RE BUILDING]
+- **Key constraints:** [DEADLINES, TECH CONSTRAINTS]
