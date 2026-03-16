@@ -48,7 +48,8 @@ cp -r ai-project-starter/memory your-project/
 
 ### Option C: Run the Init Script
 ```bash
-./scripts/init.sh
+./init-project.sh        # bash/zsh
+./init-project.ps1       # PowerShell (Windows)
 ```
 
 ## Install Skills Globally
