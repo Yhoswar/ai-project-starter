@@ -292,3 +292,71 @@ Después de inicializar el proyecto, reemplaza todos los placeholders marcados c
 *Este es un template genérico. Personalízalo según las necesidades de tu proyecto.*
 
 *Última actualización: {CURRENT_DATE}*
+
+
+---
+
+## 💡 Ejemplo Completo / Full Example
+
+> ⚠️ **EJEMPLO SOLO** — No uses esta sección directamente. Muestra cómo debería verse el archivo una vez personalizado.
+> ⚠️ **EXAMPLE ONLY** — Do not use as-is. Shows what the file looks like once filled in.
+
+### Si tu proyecto fuera "MyFinance" (Next.js 15 SaaS):
+
+```
+PROJECT_NAME: MyFinance
+PROJECT_DESCRIPTION: App de finanzas personales — tracking de gastos, presupuesto y metas de ahorro
+WEBSITE_URL: https://myfinance.app
+CONTACT_EMAIL: hola@myfinance.app
+PREFERRED_LANGUAGE: español
+MAIN_LANGUAGE: español
+
+# Stack
+BACKEND_LANGUAGE: TypeScript
+BACKEND_FRAMEWORK: Next.js 15 Server Actions + API Routes
+DATABASE: PostgreSQL (Neon serverless)
+AUTH_SYSTEM: Auth.js v5 — GitHub + Google OAuth
+
+FRONTEND_FRAMEWORK: Next.js 15 (App Router)
+UI_LIBRARY: shadcn/ui + Radix UI
+STATE_MANAGEMENT: TanStack Query (server state) + useState (local)
+STYLING_SOLUTION: Tailwind CSS v4
+BUILD_TOOL: Bun
+TESTING_FRAMEWORK: Vitest (unit) + Playwright (e2e)
+LINTER: ESLint v9 + Prettier
+
+# Directorios
+MAIN_DIRECTORY: src/
+CONFIG_DIRECTORY: src/lib/
+COMPONENTS_DIRECTORY: src/components/
+STYLES_DIRECTORY: src/app/globals.css
+
+# Rutas principales
+ROUTE_1: /                   → src/app/page.tsx            (landing pública)
+ROUTE_2: /login              → src/app/(auth)/login/       (autenticación)
+ROUTE_3: /dashboard          → src/app/(dashboard)/        (área protegida)
+ROUTE_4: /dashboard/gastos   → src/app/(dashboard)/gastos/ (lista de gastos)
+ROUTE_5: /api/gastos         → src/app/api/gastos/route.ts (API REST)
+
+# Convenciones de código
+VARIABLE_CONVENTION: camelCase (ej: totalGastos, mesActual)
+FUNCTION_CONVENTION: camelCase (ej: getMonthlyExpenses, createCategory)
+CLASS_CONVENTION: PascalCase (ej: ExpenseCard, BudgetChart)
+CONSTANT_CONVENTION: UPPER_SNAKE_CASE (ej: MAX_CATEGORIES, DEFAULT_CURRENCY)
+CSS_NAMING_PATTERN: Tailwind utility classes — no CSS modules ni styled-components
+DESIGN_SYSTEM_NAME: shadcn/ui (componentes base en src/components/ui/)
+
+# Seguridad
+SECURITY_MEASURE_1: auth() check en middleware.ts para todas las rutas /dashboard/**
+SECURITY_MEASURE_2: Zod schemas en src/lib/validators/ para todos los inputs de usuario
+SECURITY_MEASURE_3: Drizzle ORM — cero SQL raw strings en todo el codebase
+
+# Local dev
+LOCAL_URL: http://localhost:3000
+PORT: 3000
+DEPLOYMENT_COMMANDS:
+  bun dev           — servidor de desarrollo
+  bun run build     — build de producción
+  bun db:push       — sincronizar schema con Neon
+  bun run test      — correr tests unitarios
+```

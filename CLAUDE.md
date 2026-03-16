@@ -223,3 +223,51 @@ For cross-session persistent memory, also use the `claude-mem` MCP plugin.
 - **Stack:** [STACK]
 - **Current focus:** [WHAT YOU'RE BUILDING]
 - **Key constraints:** [DEADLINES, TECH CONSTRAINTS]
+
+
+---
+
+## 💡 Ejemplo Completo / Full Example
+
+> ⚠️ **EJEMPLO SOLO** — No uses esta sección directamente. Muestra cómo debería verse el archivo una vez personalizado.
+> ⚠️ **EXAMPLE ONLY** — Do not use as-is. Shows what the file looks like once filled in.
+
+### Si tu proyecto fuera "MyFinance" (Next.js 15 SaaS):
+
+```
+PROJECT_NAME: MyFinance
+PROJECT_DESCRIPTION: App de finanzas personales — tracking de gastos y metas de ahorro
+
+WEBSITE_URL: https://myfinance.app
+PREFERRED_LANGUAGE: español
+MAIN_LANGUAGE: español
+SECONDARY_LANGUAGE: inglés (código)
+
+LOCAL_ENVIRONMENT_DESCRIPTION:
+  Node.js 22 + Bun. Base de datos: Neon PostgreSQL (serverless).
+  Correr `bun dev` para iniciar en localhost:3000.
+
+PACKAGE_MANAGER: bun
+BUILD_PROCESS_DESCRIPTION: `bun run build` — Next.js build con output en .next/
+PRODUCTION_ENVIRONMENT_DESCRIPTION: Vercel (auto-deploy desde main). DB en Neon production branch.
+
+LOADING_FLOW_DESCRIPTION:
+  src/app/layout.tsx → SessionProvider → página solicitada
+  Rutas protegidas via src/middleware.ts (redirige /dashboard → /login si no autenticado)
+
+LANGUAGE_1: TypeScript
+CSS_FRAMEWORK: Tailwind CSS v4
+CUSTOM_CSS_PATH: src/app/globals.css
+CSS_VARIABLES_DESCRIPTION:
+  --background, --foreground: tema claro/oscuro via next-themes
+  --primary: #6366f1 (indigo-500)
+
+PLUGIN_NAME: superpowers | VERSION: 5.x | PURPOSE: TDD, debugging, planning
+MCP_SERVER_NAME: context7 | STATUS: activo | PURPOSE: documentación de librerías
+
+SECURITY_MEASURES_DESCRIPTION:
+  - Auth.js v5 con sesiones JWT httpOnly
+  - Zod validation en todos los API routes y Server Actions
+  - Drizzle ORM — nunca SQL raw
+  - HTTPS via Vercel, variables sensibles solo en .env
+```
