@@ -34,7 +34,7 @@ Estas capas son **independientes**: puedes usar solo el AI Config Layer en tu pr
 
 - ✅ **Sistema multi-agente** — 7 agentes especializados con orquestación automática
 - ✅ **3 templates de producción** — Next.js 15, API Bun/Hono, Automation Trigger.dev
-- ✅ **Scripts de instalación global de skills** — disponibles en todos tus proyectos
+- ✅ **Ecosistema de skills** — marketplace packages (Plugin Manager) + local skills (script), disponibles en todos tus proyectos
 - ✅ **Sistema MEMORY.md** — contexto de proyecto persistente entre sesiones de Claude
 - ✅ **CI/CD incluido** — GitHub Actions con lint + typecheck + tests + build
 - ✅ **Dual-platform** — Claude Code y OpenCode comparten el mismo sistema de agentes
@@ -178,16 +178,52 @@ SKILLS_ROOT="/ruta/a/Claude Skills" ./scripts/install-skills.sh
 
 Ver guía completa: [docs/skills-guide.md](docs/skills-guide.md)
 
-### Skills recomendados vía `claude plugin install`
+### Skills recomendados
 
-| Skill | Marketplace | Propósito |
-|-------|-------------|-----------|
-| **Superpowers** | `superpowers@superpowers-marketplace` | Framework de desarrollo ágil con 20+ skills |
-| **Claude Mem** | `claude-mem@thedotmack` | Memoria persistente entre sesiones |
-| **Frontend Design** | `frontend-design@claude-plugins-official` | Guía de diseño bold, tipografía y animaciones |
-| **UI/UX Pro Max** | `ui-ux-pro-max@ui-ux-pro-max-skill` | Design System Generator + 99 UX Guidelines |
-| **Code Review** | `code-review@claude-plugins-official` | Revisión con 5 agentes paralelos |
-| **Context Mode** | `context-mode@mksglu` | Reducción de contexto en tiempo real |
+Los skills se dividen en dos categorías: **marketplace** (instalados vía Claude Code Plugin Manager, disponibles globalmente) y **locales** (instalados vía script, viven en este repo).
+
+#### 📦 Marketplace Packages — `claude plugin install <package>`
+
+| Package | Sub-skills / Propósito |
+|---------|------------------------|
+| `superpowers` | TDD, debugging, brainstorming, planning, worktrees, parallel agents (12 skills) |
+| `claude-mem` | Memoria cross-session: make-plan, do, smart-explore, mem-search |
+| `context-mode` | Gestión de contexto en tiempo real — evita flooding del context window |
+| `frontend-design` | UI components de producción, evita estética genérica de IA |
+| `ui-ux-pro-max` | 50+ estilos, 161 paletas, 57 font pairings, 99 UX guidelines |
+| `claude-api` | Construir apps con Claude API / Anthropic SDK |
+| `code-review` | Code review de pull requests con análisis detallado |
+| `skill-creator` | Crear, testear y optimizar skills propios |
+
+#### 🛠️ Local Skills — `./scripts/install-skills.sh`
+
+Estos skills se instalan globalmente desde el script del repo y quedan disponibles en todos tus proyectos:
+
+| Skill | Propósito |
+|-------|-----------|
+| `security` | OWASP Top 10, XSS, CSRF, SQL injection, revisión de auth |
+| `researcher` | Investigación profunda con web search y síntesis de fuentes |
+| `self-healing` | Auto-mejora continua, auto-memory, creación de skills |
+| `cost-reducer` | Optimización de costos cloud, infra y queries |
+
+#### ⭐ Always Install (Core Recomendado)
+
+| Skill | Por qué instalarlo |
+|-------|-------------------|
+| `superpowers` | Disciplina de workflow base (TDD, debugging, planning) |
+| `claude-mem` | Memoria cross-session — nunca pierdas contexto entre conversaciones |
+| `context-mode` | Evita flooding de contexto en outputs grandes |
+| `security` | Todo proyecto necesita revisión de seguridad |
+| `frontend-design` | Trabajo de UI/componentes con calidad de producción |
+
+#### 🎯 Por Tipo de Proyecto
+
+| Template | Skills adicionales recomendados |
+|----------|--------------------------------|
+| `next-saas` | `ui-ux-pro-max`, `claude-api`, `skill-creator` |
+| `api-service` | `security`, `claude-api`, `code-review` |
+| `automation` | `loop`, `cost-reducer`, `researcher` |
+| cualquier proyecto | `simplify`, `update-config`, `keybindings-help` |
 
 ---
 
@@ -331,7 +367,7 @@ bun run dev
 | **OpenCode** (OpenCode.ai) | ✅ Soportado | `.opencode/` |
 | **Gemini CLI** | 🔜 Via bridge skill | — |
 
-`.opencode/` es la única fuente de verdad para agentes y comandos — Claude Code los lee vía bridge. Para agregar un nuevo agente, solo crea el archivo en `.opencode/agents/` y ambas plataformas lo detectarán automáticamente.
+Ambas plataformas tienen agentes nativos sincronizados: `.claude/agents/` para Claude Code y `.opencode/agents/` para OpenCode. Para agregar un agente, créalo en la carpeta de tu plataforma — o en ambas si quieres compatibilidad completa.
 
 ---
 
