@@ -1,6 +1,13 @@
 {
-  "$schema": "https://docs.claude.com/schemas/settings.json",
-  
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "permissions": {
+    "allow": [
+      "mcp__plugin_context-mode_context-mode__ctx_batch_execute",
+      "mcp__plugin_context-mode_context-mode__ctx_search",
+      "Bash(git add:*)",
+      "Bash(git commit:*)"
+    ]
+  },
   "permission": {
     "skill": {
       "*": "allow"
@@ -17,23 +24,13 @@
       ".opencode/team/**": "allow"
     }
   },
-
   "auto_invoke_skills": [
     "opencode-bridge"
   ],
-
   "statusline": {
     "enabled": true,
     "format": "{PROJECT_NAME} | {BRANCH} | {AGENT_STATUS}"
   },
-
-  "hooks": {
-    "pre_task": [],
-    "post_task": [],
-    "pre_commit": [],
-    "post_commit": []
-  },
-
   "experimental": {
     "multi_agent": true,
     "parallel_tasks": true

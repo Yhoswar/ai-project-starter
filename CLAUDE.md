@@ -188,20 +188,40 @@ Después de inicializar el proyecto, reemplaza todos los placeholders marcados c
 
 ## Recommended Skills (Claude Code)
 
-Install via `scripts/install-skills.sh` or manually via Claude Code plugin manager.
+Local skills via `scripts/install-skills.sh`. Marketplace packages via Claude Code plugin manager.
 
-### Always Install
+### Marketplace Packages (Claude Code Plugin Manager)
+| Package | Sub-skills / Purpose |
+|---------|---------------------|
+| `superpowers` | TDD, debugging, brainstorming, planning, worktrees, parallel agents (12 skills) |
+| `claude-mem` | Cross-session memory: make-plan, do, smart-explore, mem-search |
+| `context-mode` | Real-time context management — prevents context window flooding |
+| `frontend-design` | Production-grade UI components, avoids generic AI aesthetics |
+| `ui-ux-pro-max` | 50+ styles, 161 palettes, 57 font pairings, full UX guidelines |
+| `claude-api` | Build apps with Claude API / Anthropic SDK |
+| `code-review` | Pull request code review |
+| `skill-creator` | Create, test, and optimize custom skills |
+
+### Local Skills (install via install-skills.sh)
+- `security` — OWASP Top 10, XSS, CSRF, SQL injection, auth review
+- `researcher` — deep research with web search and source synthesis
+- `self-healing` — continuous self-improvement, auto-memory, skill creation
+- `cost-reducer` — cloud, infra, and query cost optimization
+
+### Always Install (Recommended Core)
+- `superpowers` — foundational workflow discipline (TDD, debugging, planning)
+- `claude-mem` — cross-session memory, never lose context between conversations
+- `context-mode` — prevents context flooding on large outputs
 - `security` — every project needs security review
 - `frontend-design` — UI/component work
-- `scalability` — before any production deployment
-- `superpowers` — TDD, debugging, brainstorming, planning workflows
 
 ### By Project Type
 | Template | Additional Skills |
 |----------|------------------|
-| next-saas | `ui-ux-pro-max`, `claude-api` |
-| api-service | `scalability`, `security` |
-| automation | `trigger-dev`, `composio`, `n8n` |
+| next-saas | `ui-ux-pro-max`, `claude-api`, `skill-creator` |
+| api-service | `security`, `claude-api`, `code-review` |
+| automation | `loop`, `cost-reducer`, `researcher` |
+| any | `simplify`, `update-config`, `keybindings-help` |
 
 ---
 
