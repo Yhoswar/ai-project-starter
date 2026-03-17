@@ -22,8 +22,8 @@ if [[ ! -d "$SOURCE_DIR" ]]; then
   exit 1
 fi
 
-CORE_SKILLS=("security" "scalability" "frontend-design" "researcher" "know-me" "self-healing")
-OPTIONAL_SKILLS=("trigger-dev" "composio" "n8n" "cost-reducer" "customer-support" "create-skill")
+CORE_SKILLS=("security" "scalability" "researcher" "know-me" "self-healing")
+OPTIONAL_SKILLS=("trigger-dev" "composio" "n8n" "cost-reducer" "customer-support" "docs")
 
 mkdir -p "$DEST_DIR"
 
