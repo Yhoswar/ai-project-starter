@@ -57,3 +57,5 @@ jobs:
       - name: Build
         run: bun run build
         if: matrix.template == 'next-saas'
+        env:
+          SKIP_ENV_VALIDATION: "1"
