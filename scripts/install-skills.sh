@@ -3,8 +3,15 @@ set -euo pipefail
 
 # ─────────────────────────────────────────────
 #  Claude Code Skills Installer
-#  Installs LOCAL skills from a folder + lists
-#  MARKETPLACE packages to install via UI.
+#
+#  PART 1 — LOCAL SKILLS
+#    Source:  ~/OneDrive/Desktop/Claude Skills/  (o $SKILLS_ROOT)
+#    Dest:    ~/.claude/skills/  ← GLOBAL (todos los proyectos)
+#    Acción:  cp -r <skill> ~/.claude/skills/
+#
+#  PART 2 — MARKETPLACE PACKAGES
+#    Instalados via: claude plugin install <package>
+#    (este script solo muestra la lista; instala desde Claude Code UI o CLI)
 # ─────────────────────────────────────────────
 
 # ANSI colors (fallback gracefully if not supported)
@@ -93,7 +100,8 @@ echo ""
 echo -e "${BOLD}[2/2] MARKETPLACE PACKAGES${RESET} ${DIM}(install via Claude Code plugin manager)${RESET}"
 echo ""
 echo -e "  ${DIM}These cannot be installed by this script.${RESET}"
-echo -e "  ${DIM}Open Claude Code → Settings → Plugins/Marketplace and install:${RESET}"
+echo -e "  ${DIM}Install via CLI: claude plugin install <package>${RESET}"
+echo -e "  ${DIM}Or via UI: Claude Code → Settings → Plugins/Marketplace${RESET}"
 echo ""
 
 echo -e "  ${BOLD}Core (recommended for ALL projects):${RESET}"

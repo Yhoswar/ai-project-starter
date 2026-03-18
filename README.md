@@ -176,6 +176,35 @@ El script soporta `SKILLS_ROOT` para una ruta personalizada:
 SKILLS_ROOT="/ruta/a/Claude Skills" ./scripts/install-skills.sh
 ```
 
+> **¿Dónde se instalan?**
+> - **Marketplace packages** → gestionados por Claude Code internamente, disponibles en todos los proyectos
+> - **Local skills** → copiados a `~/.claude/skills/` (global de usuario), disponibles en todos los proyectos
+
+### Instalar sin el script
+
+#### Marketplace packages (CLI)
+
+```bash
+claude plugin install superpowers
+claude plugin install claude-mem
+claude plugin install context-mode
+claude plugin install frontend-design
+claude plugin install ui-ux-pro-max
+claude plugin install claude-api
+claude plugin install code-review
+claude plugin install skill-creator
+```
+
+#### Local skills (manual)
+
+Copia cada carpeta de skill a `~/.claude/skills/`:
+
+```bash
+# Reemplaza ~/path/to/skill con la ruta real del skill
+cp -r ~/path/to/skill ~/.claude/skills/
+# Reinicia Claude Code para que tome efecto
+```
+
 Ver guía completa: [docs/skills-guide.md](docs/skills-guide.md)
 
 ### Skills recomendados
