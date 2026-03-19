@@ -205,6 +205,12 @@ cp -r ~/path/to/skill ~/.claude/skills/
 # Reinicia Claude Code para que tome efecto
 ```
 
+#### Git-cloned skills (manual)
+
+```bash
+git clone https://github.com/blader/humanizer.git ~/.claude/skills/humanizer
+```
+
 Ver guía completa: [docs/skills-guide.md](docs/skills-guide.md)
 
 ### Skills recomendados
@@ -235,6 +241,14 @@ Estos skills se instalan globalmente desde el script del repo y quedan disponibl
 | `self-healing` | Auto-mejora continua, auto-memory, creación de skills |
 | `cost-reducer` | Optimización de costos cloud, infra y queries |
 
+#### 🌐 Git-Cloned Skills — `git clone <repo> ~/.claude/skills/<name>`
+
+Skills instalados directamente desde GitHub (el script los clona y actualiza automáticamente):
+
+| Skill | Fuente | Propósito |
+|-------|--------|-----------|
+| `humanizer` | [blader/humanizer](https://github.com/blader/humanizer) | Elimina 24 patrones de escritura AI, humaniza texto (v2.2.0) |
+
 #### ⭐ Always Install (Core Recomendado)
 
 | Skill | Por qué instalarlo |
@@ -252,7 +266,7 @@ Estos skills se instalan globalmente desde el script del repo y quedan disponibl
 | `next-saas` | `ui-ux-pro-max`, `claude-api`, `skill-creator` |
 | `api-service` | `security`, `claude-api`, `code-review` |
 | `automation` | `loop`, `cost-reducer`, `researcher` |
-| cualquier proyecto | `simplify`, `update-config`, `keybindings-help` |
+| cualquier proyecto | `simplify`, `update-config`, `keybindings-help`, `humanizer` |
 
 ---
 

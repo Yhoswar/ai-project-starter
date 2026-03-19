@@ -208,6 +208,11 @@ Local skills via `scripts/install-skills.sh`. Marketplace packages via Claude Co
 - `self-healing` — continuous self-improvement, auto-memory, skill creation
 - `cost-reducer` — cloud, infra, and query cost optimization
 
+### Git-Cloned Skills (install via install-skills.sh PART 3)
+| Skill | Source | Purpose |
+|-------|--------|---------|
+| `humanizer` | [blader/humanizer](https://github.com/blader/humanizer) | Remove AI writing patterns from text (24 patterns, v2.2.0) |
+
 ### Always Install (Recommended Core)
 - `superpowers` — foundational workflow discipline (TDD, debugging, planning)
 - `claude-mem` — cross-session memory, never lose context between conversations
@@ -221,7 +226,7 @@ Local skills via `scripts/install-skills.sh`. Marketplace packages via Claude Co
 | next-saas | `ui-ux-pro-max`, `claude-api`, `skill-creator` |
 | api-service | `security`, `claude-api`, `code-review` |
 | automation | `loop`, `cost-reducer`, `researcher` |
-| any | `simplify`, `update-config`, `keybindings-help` |
+| any | `simplify`, `update-config`, `keybindings-help`, `humanizer` |
 
 ---
 

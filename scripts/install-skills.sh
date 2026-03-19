@@ -124,5 +124,33 @@ echo -e "  ${CYAN}•${RESET} simplify        — code quality review"
 echo -e "  ${CYAN}•${RESET} update-config   — configure settings.json and hooks"
 echo ""
 
+# ─────────────────────────────────────────────
+#  PART 3 — GIT-CLONED SKILLS
+#  Cloned directly from GitHub into ~/.claude/skills/
+# ─────────────────────────────────────────────
+
+echo ""
+echo -e "${BOLD}[3/3] GIT-CLONED SKILLS${RESET} ${DIM}(cloned from GitHub)${RESET}"
+echo ""
+
+GIT_SKILLS=(
+  "humanizer|https://github.com/blader/humanizer.git"
+)
+
+for entry in "${GIT_SKILLS[@]}"; do
+  skill_name="${entry%%|*}"
+  skill_url="${entry##*|}"
+  dest="$DEST_DIR/$skill_name"
+  if [[ -d "$dest" ]]; then
+    echo -e "  ${DIM}Updating: $skill_name${RESET}"
+    git -C "$dest" pull --quiet
+    echo -e "  ${GREEN}✓ UPDATED: $skill_name${RESET}"
+  else
+    echo -e "  Cloning: $skill_name"
+    git clone --quiet "$skill_url" "$dest"
+    echo -e "  ${GREEN}✓ INSTALLED: $skill_name${RESET}"
+  fi
+done
+
 echo -e "${BOLD}Done!${RESET} Restart Claude Code for local skills to take effect."
 echo ""
