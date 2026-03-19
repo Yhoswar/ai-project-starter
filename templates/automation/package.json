@@ -8,7 +8,7 @@
     "deploy": "bunx trigger.dev@latest deploy",
     "test": "vitest",
     "typecheck": "tsc --noEmit",
-    "lint": "echo 'no linter configured'"
+    "lint": "tsc --noEmit"
   },
   "devDependencies": {
     "@types/bun": "^1.3.10",

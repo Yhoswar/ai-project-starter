@@ -6,7 +6,7 @@ if ($env:SKILLS_ROOT) {
   $SourceDir = "$env:USERPROFILE\OneDrive\Desktop\Claude Skills"
 }
 
-$DestDir = "$env:USERPROFILE\.claude\plugins\local-skills"
+$DestDir = "$env:USERPROFILE\.claude\skills"
 
 Write-Host "Claude Code Skills Installer"
 Write-Host "Source: $SourceDir"
@@ -17,8 +17,8 @@ if (-not (Test-Path $SourceDir)) {
   exit 1
 }
 
-$CoreSkills = @("security","scalability","frontend-design","researcher","know-me","self-healing")
-$OptionalSkills = @("trigger-dev","composio","n8n","cost-reducer","customer-support","create-skill")
+$CoreSkills = @("security", "researcher", "self-healing", "cost-reducer")
+$OptionalSkills = @("frontend-design")
 
 if (-not (Test-Path $DestDir)) { New-Item -ItemType Directory -Path $DestDir -Force | Out-Null }
 
@@ -32,13 +32,30 @@ function Install-Skill {
   Write-Host "  INSTALLED: $Skill"
 }
 
+# PART 1: Core skills
 Write-Host "`nInstalling core skills..."
 foreach ($skill in $CoreSkills) { Install-Skill $skill }
 
+# PART 2: Optional skills
 Write-Host "`nOptional skills:"
 foreach ($skill in $OptionalSkills) {
   $answer = Read-Host "  Install $skill? [y/N]"
   if ($answer -match "^[Yy]$") { Install-Skill $skill }
+}
+
+# PART 3: Git-cloned skills
+Write-Host "`nGit-cloned skills (require git):"
+$GitSkillsDir = "$env:USERPROFILE\.claude\skills"
+
+$answer = Read-Host "  Install humanizer (blader/humanizer)? [y/N]"
+if ($answer -match "^[Yy]$") {
+  $HumanizerDest = Join-Path $GitSkillsDir "humanizer"
+  if (Test-Path $HumanizerDest) {
+    Write-Host "  OK (already installed): humanizer"
+  } else {
+    git clone --depth 1 https://github.com/blader/humanizer.git $HumanizerDest
+    Write-Host "  INSTALLED: humanizer"
+  }
 }
 
 Write-Host "`nDone! Restart Claude Code for changes to take effect."
