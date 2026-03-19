@@ -5,7 +5,16 @@
       "mcp__plugin_context-mode_context-mode__ctx_batch_execute",
       "mcp__plugin_context-mode_context-mode__ctx_search",
       "Bash(git add:*)",
-      "Bash(git commit:*)"
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "Bash(bun install:*)",
+      "Bash(gh run:*)",
+      "Bash(git ls-remote:*)",
+      "Bash(ls ~/.claude/skills/*/SKILL.md ~/.claude/skills/*/*.md)",
+      "Bash(git clone:*)",
+      "Bash(SKIP_ENV_VALIDATION=1 bun run typecheck)",
+      "Bash(bun run:*)",
+      "Bash(SKIP_ENV_VALIDATION=1 bun run build)"
     ]
   },
   "permission": {
