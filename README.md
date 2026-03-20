@@ -56,7 +56,7 @@ claude .
 
 ## What You Get
 
-### 🤖 7 Specialized Agents
+### 🤖 6 Specialized Agents (5 Core + 1 Optional)
 Pre-configured agents that collaborate automatically. Each expert in their domain, with built-in security rules and memory protocol.
 
 | Agent | Expertise |
