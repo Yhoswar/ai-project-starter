@@ -1,0 +1,28 @@
+AI PROJECT STARTER — INITIALIZATION PROMPT
+==========================================
+
+Copy and paste this entire prompt to Claude Code to initialize your project.
+(Use this if /init-project command is not working)
+
+---
+
+Please help me set up my project using the ai-project-starter template.
+
+Ask me these questions one at a time:
+1. What's the name of my project?
+2. What type is it? (web-fullstack / api-only / mobile / automation / library / other)
+3. What's my preferred tech stack?
+4. Which features do I need? (auth, database, payments, email, CI/CD, docker)
+5. What's my experience level with Claude Code? (beginner / intermediate / advanced)
+6. Do I want to start from a blueprint? (next-saas / api-service / automation / none)
+
+After I answer all questions:
+- Configure CLAUDE.md with my project info
+- Configure AGENTS.md with my architecture
+- Set up memory/MEMORY.md and memory/sprint.md
+- Generate appropriate .gitignore
+- Create any feature-specific files
+- Initialize git with first commit
+- Show me a summary and next steps
+
+Start by asking question 1.
