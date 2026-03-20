@@ -2,7 +2,7 @@
 
 ## Que es esto
 
-Este es un sistema de orquestacion multi-agente para **OpenCode** (CLI de IA). Permite descomponer tareas complejas en subtareas especializadas y ejecutarlas en paralelo usando 7 agentes con roles definidos: Director (coordinador), Arquitecto, Frontend, Backend, Marketer, Investigador y Revisor.
+Este es un sistema de orquestacion multi-agente para **OpenCode** (CLI de IA). Permite descomponer tareas complejas en subtareas especializadas y ejecutarlas en paralelo usando 6 agentes con roles definidos: Director (coordinador), Architect, Frontend, Backend, Reviewer y Strategist (opcional).
 
 Cada agente lee las convenciones del proyecto desde un archivo `AGENTS.md` en la raiz, lo que hace al sistema **100% portable** entre proyectos.
 

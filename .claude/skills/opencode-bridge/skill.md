@@ -23,7 +23,7 @@ Claude Code puede acceder a él mediante este skill puente que:
 
 ```
 .opencode/           ← FUENTE DE VERDAD (sistema multi-agente)
-├── agents/         ← 7 agentes especializados
+├── agents/         ← 6 agentes (5 core + 1 opcional)
 ├── commands/       ← 3 comandos team
 ├── skills/         ← Orquestación multi-team
 └── team/           ← Estado persistente (tasks.json)

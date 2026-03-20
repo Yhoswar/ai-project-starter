@@ -2,7 +2,7 @@
 
 ## The Multi-Agent System
 
-7 specialized agents that collaborate via Claude Code.
+6 agents (5 core + 1 optional) that collaborate via Claude Code.
 
 | Agent | Role | Use for |
 |-------|------|---------|

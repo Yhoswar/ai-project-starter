@@ -4,7 +4,7 @@
 
 **La forma más rápida de iniciar cualquier proyecto con infraestructura AI completa.**
 
-7 agentes especializados · Sistema de memoria · Wizard de setup interactivo · Blueprints de producción
+5 agentes core + 1 opcional · Sistema de memoria · Wizard de setup interactivo · Blueprints de producción
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Claude Code](https://img.shields.io/badge/Claude%20Code-Compatible-blue)](https://claude.ai/code)

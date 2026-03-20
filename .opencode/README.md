@@ -26,13 +26,13 @@ Y automáticamente:
 
 ```
 .opencode/
-├── agents/                      # 7 agentes especializados
+├── agents/                      # 6 agentes (5 core + 1 opcional)
 │   ├── director.md             # 🎯 Orquestador principal
-│   ├── arquitecto.md           # 📐 Análisis y diseño
+│   ├── architect.md            # 📐 Análisis y diseño
 │   ├── frontend.md             # 💻 HTML/CSS/JS/React
 │   ├── backend.md              # ⚙️ APIs/DB/Lógica servidor
-│   ├── marketer.md             # 📝 Copywriting/SEO
-│   ├── investigador.md         # 🔍 Research/Docs
+│   ├── reviewer.md             # ✅ Code review/QA/Seguridad
+│   ├── strategist.md           # 📝 Research/Contenido (opcional)
 │   └── revisor.md              # 🛡️ QA/Security/Audit
 │
 ├── commands/                    # Comandos de equipo
