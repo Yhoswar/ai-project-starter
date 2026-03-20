@@ -10,7 +10,7 @@
 [![Claude Code](https://img.shields.io/badge/Claude%20Code-Compatible-blue)](https://claude.ai/code)
 [![OpenCode](https://img.shields.io/badge/OpenCode-Compatible-green)](https://opencode.ai)
 
-[Quick Start](#quick-start) · [What You Get](#what-you-get) · [Agents](#agents) · [Commands](#commands) · [Blueprints](#blueprints) · [Contributing](CONTRIBUTING.md)
+[Quick Start](#quick-start) · [What You Get](#what-you-get) · [Agents](#agents) · [Commands](#commands) · [Blueprints](#blueprints) · [Roadmap](docs/project-roadmap.md) · [Contributing](CONTRIBUTING.md)
 
 **[🇪🇸 Versión en Español](README.es.md)**
 
@@ -33,6 +33,8 @@
 ```
 
 The wizard will ask about your project and configure everything automatically.
+
+> **What's next after `/init-project`?** Follow the [Project Roadmap](docs/project-roadmap.md) — phases 0–4 from planning to production.
 
 ### Option 2: Add to Existing Project
 

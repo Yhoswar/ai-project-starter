@@ -9,7 +9,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Claude Code](https://img.shields.io/badge/Claude%20Code-Compatible-blue)](https://claude.ai/code)
 
-[Inicio Rápido](#inicio-rápido) · [Qué Incluye](#qué-incluye) · [Agentes](#agentes) · [Comandos](#comandos) · [Blueprints](#blueprints)
+[Inicio Rápido](#inicio-rápido) · [Qué Incluye](#qué-incluye) · [Agentes](#agentes) · [Comandos](#comandos) · [Blueprints](#blueprints) · [Roadmap](docs/project-roadmap.md)
 
 **[🇺🇸 English Version](README.md)**
 

@@ -19,7 +19,7 @@ cd ai-project-starter
 
 **New project from template:**
 ```bash
-cp -r templates/next-saas ../my-project
+cp -r _blueprints/next-saas ../my-project
 cd ../my-project
 bun install
 cp .env.example .env
@@ -61,3 +61,10 @@ Try `/team-plan` to kick off planning with all 7 agents.
 - Ensure `.env` is filled out (not `.env.example`)
 - Run `bun install` first
 - For next-saas: run `bun db:push` to create DB tables
+
+---
+
+## Next Steps
+
+Once you're set up, follow the complete project roadmap:
+**[docs/project-roadmap.md](project-roadmap.md)** — Phases 0–4 from idea to production, including security checkpoints.
