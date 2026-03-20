@@ -13,7 +13,7 @@ Full-stack Next.js 16 starter for SaaS products, dashboards, and web application
 
 ## Quick Start
 
-1. Copy this folder: `cp -r templates/next-saas my-project && cd my-project`
+1. Copy this folder: `cp -r _blueprints/next-saas my-project && cd my-project`
 2. Install: `bun install`
 3. Copy env: `cp .env.example .env.local` and fill in values
 4. Push DB schema: `bun run db:push`
@@ -29,6 +29,14 @@ Full-stack Next.js 16 starter for SaaS products, dashboards, and web application
 | `AUTH_GITHUB_ID` / `AUTH_GITHUB_SECRET` | GitHub OAuth app |
 | `AUTH_GOOGLE_ID` / `AUTH_GOOGLE_SECRET` | Google OAuth app |
 | `NEXT_PUBLIC_APP_URL` | App URL (e.g. `http://localhost:3000`) |
+
+### Local PostgreSQL (Optional)
+
+If you prefer local development without Neon, install PostgreSQL locally and set:
+```
+DATABASE_URL=postgresql://user:password@localhost:5432/your_db_name
+```
+Then run `bun run db:push` as usual — Drizzle is database-agnostic.
 
 ## Key Features
 
