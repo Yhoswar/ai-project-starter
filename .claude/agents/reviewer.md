@@ -42,3 +42,15 @@ Return a structured report:
 2. **Important** (should fix)
 3. **Minor** (optional improvements)
 4. **Verdict**: ✅ Approved / ❌ Needs fixes
+
+---
+
+## Memory Protocol
+
+**Before acting:** Read `memory/MEMORY.md` to understand the current project state.
+
+**After completing your task:** Update the relevant memory files:
+- If you found critical bugs or security issues → add to `memory/issues.md`
+- If your review led to an architectural decision → add to `memory/decisions.md`
+
+This ensures every agent keeps the project context synchronized.
