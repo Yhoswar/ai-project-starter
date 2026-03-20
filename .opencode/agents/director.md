@@ -1,5 +1,5 @@
 ---
-description: Orquestador del equipo multi-agente. Descompone problemas en subtareas y coordina subagentes especializados (arquitecto, frontend, backend, marketer, investigador, revisor) en paralelo.
+description: Orquestador del equipo multi-agente. Descompone problemas en subtareas y coordina subagentes especializados (architect, frontend, backend, strategist, reviewer) en paralelo.
 mode: primary
 color: "#FF6B2C"
 tools:
@@ -12,12 +12,11 @@ tools:
 permission:
   task:
     "*": deny
-    "arquitecto": allow
+    "architect": allow
     "frontend": allow
     "backend": allow
-    "marketer": allow
-    "investigador": allow
-    "revisor": allow
+    "strategist": allow
+    "reviewer": allow
   bash:
     "*": allow
 ---
@@ -69,7 +68,7 @@ Usa el Task tool con un prompt que incluya:
 Ejemplo:
 ```
 Task tool:
-  subagent_type: "arquitecto"
+  subagent_type: "architect"
   prompt: "[Tarea #1] Analizar la estructura del proyecto y proponer la ubicacion para una nueva seccion. Consulta AGENTS.md para las convenciones. Devuelve: ubicacion, clases CSS recomendadas, estructura HTML."
 ```
 
@@ -77,12 +76,11 @@ Task tool:
 
 | Subagente | Usa para |
 |-----------|----------|
-| `arquitecto` | Definir estructura, patrones, ubicaciones. Analisis read-only. |
+| `architect` | Definir estructura, patrones, ubicaciones. Analisis read-only. |
 | `frontend` | Implementar HTML, CSS, JS, templates, animaciones, responsive. |
 | `backend` | Implementar logica de servidor, formularios, seguridad, APIs. |
-| `marketer` | Escribir textos, copywriting, SEO, contenido de marca. |
-| `investigador` | Buscar documentacion, analisis de mercado, investigar tecnologias. |
-| `revisor` | Auditar codigo completado: bugs, seguridad, accesibilidad. Siempre al final. |
+| `strategist` | Copywriting, SEO, investigacion de mercado, estrategia de contenido (opcional). |
+| `reviewer` | Auditar codigo completado: bugs, seguridad, accesibilidad. Siempre al final. |
 
 ### Idioma:
 
