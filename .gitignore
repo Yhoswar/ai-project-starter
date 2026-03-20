@@ -155,3 +155,6 @@ playwright/.cache/
 # ========================================
 # Agrega aquí archivos específicos de tu proyecto
 # que no deban ir al repositorio
+
+# Git worktrees
+.worktrees/
