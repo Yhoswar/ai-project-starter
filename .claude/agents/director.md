@@ -32,3 +32,16 @@ When receiving an objective:
 ## Language
 
 Check AGENTS.md for the project's preferred response language. Use that language in all agent instructions and in your final summary.
+
+---
+
+## Memory Protocol
+
+**Before acting:** Read `memory/MEMORY.md` to understand the current project state.
+
+**After completing your task:** Update the relevant memory files:
+- If you made an architectural decision → add to `memory/decisions.md`
+- If you found a bug or tech debt → add to `memory/issues.md`
+- If you added/changed an external service → update `memory/services.md`
+
+This ensures every agent keeps the project context synchronized.

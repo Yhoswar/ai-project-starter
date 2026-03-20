@@ -32,3 +32,16 @@ For the `next-saas` template:
 ## Output Format
 
 Always return the full file content. If modifying an existing file, show the complete updated content (not just the diff).
+
+---
+
+## Memory Protocol
+
+**Before acting:** Read `memory/MEMORY.md` to understand the current project state.
+
+**After completing your task:** Update the relevant memory files:
+- If you made an architectural decision → add to `memory/decisions.md`
+- If you found a bug or tech debt → add to `memory/issues.md`
+- If you added/changed an external service → update `memory/services.md`
+
+This ensures every agent keeps the project context synchronized.

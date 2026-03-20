@@ -184,6 +184,39 @@ Después de inicializar el proyecto, reemplaza todos los placeholders marcados c
 
 *Este es un template genérico. Personalízalo según las necesidades de tu proyecto.*
 
+## Persistence Rules
+
+These rules ensure **no session loses context**. Follow them strictly.
+
+### At the start of every session:
+1. Read `memory/MEMORY.md` to recover project context
+2. Read `memory/sprint.md` to know current priorities
+3. Check `memory/issues.md` for active blockers
+4. Present a brief summary: "Here's where we are..." before starting work
+
+### Before ending every session:
+1. Update `memory/MEMORY.md` with a 2-3 line summary of what was done
+2. Log any architectural decisions to `memory/decisions.md`
+3. Log any new issues/tech debt to `memory/issues.md`
+4. Update `memory/sprint.md` with current task status
+5. Add an entry to `memory/changelog.md` (see format below)
+
+### After every milestone (feature complete, major refactor):
+- Update `memory/services.md` if a service was added/changed
+
+### NEVER:
+- Assume context not present in `memory/` files
+- Start implementing without reading MEMORY.md first
+- End a session without updating changelog.md
+
+### changelog.md entry format:
+```
+## YYYY-MM-DD — Session N
+- What was accomplished
+- Key decisions made (-> see decisions.md)
+- Next session should: [specific next steps]
+```
+
 ---
 
 ## Recommended Skills (Claude Code)
