@@ -173,8 +173,14 @@ git commit -m "feat: configure project with /init-project"
 4. At the end of each session, run `/save-context` to preserve progress
 
 ### Recommended skills to install:
-```
+```bash
+# Essential
 claude install superpowers context-mode claude-mem security
+
+# Recommended
+claude install frontend-design ui-ux-pro-max code-review
+claude install web-design-guidelines web-accessibility emil-design-eng
+claude install researcher self-healing
 ```
 
 Happy building! 🎉
