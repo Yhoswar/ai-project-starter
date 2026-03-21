@@ -218,10 +218,14 @@ claude install superpowers context-mode claude-mem security
 
 # Recommended
 claude install frontend-design ui-ux-pro-max code-review
+claude install web-design-guidelines web-accessibility emil-design-eng
+claude install researcher self-healing
 
 # Optional
-claude install researcher cost-reducer self-healing
+claude install cost-reducer
 ```
+
+> 💡 **UI workflow:** ui-ux-pro-max diseña → web-design-guidelines refina → web-accessibility audita → emil-design-eng pule animaciones
 
 See `docs/skills-guide.md` for what each skill does.
 
