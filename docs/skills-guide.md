@@ -33,6 +33,13 @@
 - `composio` — 1000+ app integrations
 - `n8n` — n8n workflow building
 
+### mcp / integrations
+- `mcp-builder` — build MCP (Model Context Protocol) servers from scratch
+
+### document processing
+- `pdf` — merge, split, OCR, extract text/data, fill forms
+- `docx` — create and edit Word (.docx) files programmatically
+
 ## Manual Installation
 
 Add to `~/.claude/settings.json`:

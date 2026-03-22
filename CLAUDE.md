@@ -234,6 +234,9 @@ Local skills via `scripts/install-skills.sh`. Marketplace packages via Claude Co
 | `claude-api` | Build apps with Claude API / Anthropic SDK |
 | `code-review` | Pull request code review |
 | `skill-creator` | Create, test, and optimize custom skills |
+| `mcp-builder` | Build MCP (Model Context Protocol) servers |
+| `pdf` | PDF operations: merge, split, OCR, extract, forms |
+| `docx` | Create and edit Word (.docx) files |
 
 ### Local Skills (install via install-skills.sh)
 - `security` — OWASP Top 10, XSS, CSRF, SQL injection, auth review
@@ -259,6 +262,8 @@ Local skills via `scripts/install-skills.sh`. Marketplace packages via Claude Co
 | next-saas | `ui-ux-pro-max`, `claude-api`, `skill-creator` |
 | api-service | `security`, `claude-api`, `code-review` |
 | automation | `loop`, `cost-reducer`, `researcher` |
+| mcp / integrations | `mcp-builder` |
+| document processing | `pdf`, `docx` |
 | any | `simplify`, `update-config`, `keybindings-help`, `humanizer` |
 
 ---

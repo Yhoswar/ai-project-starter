@@ -123,6 +123,11 @@ echo -e "  ${CYAN}•${RESET} loop            — recurring/interval tasks"
 echo -e "  ${CYAN}•${RESET} simplify        — code quality review"
 echo -e "  ${CYAN}•${RESET} update-config   — configure settings.json and hooks"
 echo ""
+echo -e "  ${BOLD}Document & MCP:${RESET}"
+echo -e "  ${CYAN}•${RESET} mcp-builder     — build MCP (Model Context Protocol) servers"
+echo -e "  ${CYAN}•${RESET} pdf             — PDF merge, split, OCR, extract, forms"
+echo -e "  ${CYAN}•${RESET} docx            — create/edit Word .docx files"
+echo ""
 
 # ─────────────────────────────────────────────
 #  PART 3 — GIT-CLONED SKILLS
