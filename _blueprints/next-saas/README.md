@@ -82,6 +82,19 @@ Edit the CSP `connect-src` directive to add your OAuth provider domains.
 | `bun run db:seed` | Insert 2 dev users |
 | `bun run db:studio` | Open Drizzle Studio |
 
+## Code Rules
+
+Best practices for this blueprint are documented in `rules/nextjs.md`:
+- Project structure (feature-based, App Router conventions)
+- TypeScript strict patterns
+- Component rules, state management, API layer
+- Testing strategy, error handling, performance, security
+
+Add this to your project's `CLAUDE.md` under **Convenciones de Código**:
+```
+Follow the rules defined in `_blueprints/next-saas/rules/nextjs.md`.
+```
+
 ## Recommended Skills
 
 - `security` — auth, API endpoints, input validation
