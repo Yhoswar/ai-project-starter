@@ -78,9 +78,17 @@ tu-proyecto/
 ├── planning/       ← Roadmaps, sprints, OKRs
 ├── implementation/ ← Specs técnicas, ADRs
 ├── tests/          ← Tests del proyecto
-├── mcps/           ← Configuraciones MCP
+├── mcps/           ← Configuraciones MCP + documentación de CLIs
 └── memory/         ← Persistencia de contexto (siempre presente)
 ```
+
+### 🔧 CLIs e Integraciones
+
+Herramientas CLI que los agentes pueden invocar directamente:
+
+| Herramienta | Propósito | Docs |
+|-------------|-----------|------|
+| `gws` (Google Workspace CLI) | Drive, Sheets, Gmail, Calendar desde terminal | [mcps/README.md](mcps/README.md) |
 
 ---
 

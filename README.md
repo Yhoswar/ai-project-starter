@@ -106,10 +106,18 @@ your-project/
 ├── planning/           ← Roadmaps, sprints, OKRs
 ├── implementation/     ← Technical specs, ADRs
 ├── tests/              ← Test files
-├── mcps/               ← MCP server configurations
+├── mcps/               ← MCP server configs + CLI tool docs
 ├── memory/             ← Context persistence (always present)
 └── _blueprints/        ← Production templates (optional reference)
 ```
+
+### 🔧 CLI Tools & Integrations
+
+Complementary CLI tools that agents can invoke directly:
+
+| Tool | Purpose | Docs |
+|------|---------|------|
+| `gws` (Google Workspace CLI) | Drive, Sheets, Gmail, Calendar via terminal | [mcps/README.md](mcps/README.md) |
 
 ---
 
