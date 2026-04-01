@@ -268,6 +268,50 @@ Local skills via `scripts/install-skills.sh`. Marketplace packages via Claude Co
 
 ---
 
+## Skills Activos para Este Proyecto
+
+<!-- 
+  Descomenta solo los skills relevantes para ESTE proyecto.
+  Claude los priorizará en cada sesión. Los demás están instalados
+  globalmente pero no necesitan estar en el radar de este proyecto.
+-->
+
+**Core (siempre activos — no comentar):**
+- `security` — OWASP, auth, input validation
+- `researcher` — deep research y síntesis de fuentes
+- `systematic-debugging` — metodología estructurada de debugging
+- `humanizer` — eliminar patrones de escritura AI
+
+**Según tipo de proyecto (descomenta los que aplican):**
+
+<!-- SEO / Presencia web -->
+<!-- - Suite SEO completa: `seo` + 19 skills especializados + 12 agentes -->
+
+<!-- UI / Frontend -->
+<!-- - `frontend-design` — componentes UI de producción -->
+<!-- - `web-design-guidelines`, `web-accessibility`, `emil-design-eng` -->
+<!-- - `ui-ux-pro-max` — 50+ estilos, 161 paletas -->
+
+<!-- Documentos -->
+<!-- - `pdf` — merge, split, OCR, extracción, formularios -->
+<!-- - `docx` — crear y editar archivos Word -->
+
+<!-- Integraciones / MCP -->
+<!-- - `mcp-builder` — construir servidores MCP -->
+
+<!-- IA / API Claude -->
+<!-- - `claude-api` — Anthropic SDK y Claude API -->
+<!-- - `skill-creator` — crear y optimizar skills -->
+
+<!-- Automatización / Costos -->
+<!-- - `loop` — tareas recurrentes e intervalos -->
+<!-- - `cost-reducer` — optimización de costos cloud e infra -->
+
+<!-- Investigación / Contenido -->
+<!-- - `content-research-writer` — escritura con research integrado -->
+
+---
+
 ## Memory System
 
 This repo includes a `memory/` folder with Claude memory templates.
