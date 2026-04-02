@@ -279,7 +279,7 @@ Local skills via `scripts/install-skills.sh`. Marketplace packages via Claude Co
 **Core (siempre activos — no comentar):**
 - `security` — OWASP, auth, input validation
 - `researcher` — deep research y síntesis de fuentes
-- `systematic-debugging` — metodología estructurada de debugging
+- `superpowers:systematic-debugging` — metodología estructurada de debugging (via superpowers)
 - `humanizer` — eliminar patrones de escritura AI
 
 **Según tipo de proyecto (descomenta los que aplican):**
