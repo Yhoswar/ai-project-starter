@@ -89,6 +89,7 @@ Herramientas CLI que los agentes pueden invocar directamente:
 | Herramienta | Propósito | Docs |
 |-------------|-----------|------|
 | `gws` (Google Workspace CLI) | Drive, Sheets, Gmail, Calendar desde terminal | [mcps/README.md](mcps/README.md) |
+| `gstack` (pack de skills de Garry Tan) | Simulación de equipo completo: review CEO, diseño, QA, ship, deploy (32 skills) | [garrytan/gstack](https://github.com/garrytan/gstack) |
 
 ---
 
@@ -134,6 +135,10 @@ claude install superpowers context-mode claude-mem security
 
 # Recomendados
 claude install frontend-design ui-ux-pro-max
+
+# Para proyectos de cliente / profesionales (simulación de equipo completo)
+git clone --single-branch --depth 1 https://github.com/garrytan/gstack.git ~/.claude/skills/gstack
+cd ~/.claude/skills/gstack && ./setup
 
 # Opcionales
 claude install researcher cost-reducer

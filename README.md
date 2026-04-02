@@ -118,6 +118,7 @@ Complementary CLI tools that agents can invoke directly:
 | Tool | Purpose | Docs |
 |------|---------|------|
 | `gws` (Google Workspace CLI) | Drive, Sheets, Gmail, Calendar via terminal | [mcps/README.md](mcps/README.md) |
+| `gstack` (Garry Tan's dev skill pack) | Full dev team simulation: CEO review, design, QA, ship, deploy (32 skills) | [garrytan/gstack](https://github.com/garrytan/gstack) |
 
 ---
 
@@ -228,6 +229,10 @@ claude install superpowers context-mode claude-mem security
 claude install frontend-design ui-ux-pro-max code-review
 claude install web-design-guidelines web-accessibility emil-design-eng
 claude install researcher self-healing
+
+# For client / professional projects (full dev team simulation)
+git clone --single-branch --depth 1 https://github.com/garrytan/gstack.git ~/.claude/skills/gstack
+cd ~/.claude/skills/gstack && ./setup
 
 # Optional
 claude install cost-reducer
