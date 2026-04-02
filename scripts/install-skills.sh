@@ -95,6 +95,74 @@ else
   )
   for skill in "${CORE_SKILLS[@]}"; do install_skill "$skill"; done
 
+  # ── Marketing Suite (optional) ────────────────────────────────────────
+  echo ""
+  echo -e "  ${BOLD}Marketing Suite${RESET} ${DIM}(31 skills — content, CRO, email, strategy):${RESET}"
+  read -rp "    Install full Marketing suite? [y/N] " answer
+  if [[ "$answer" =~ ^[Yy]$ ]]; then
+    MARKETING_SKILLS=(
+      "ab-test-setup" "ai-seo" "analytics-tracking" "churn-prevention" "cold-email"
+      "competitor-alternatives" "content-strategy" "copy-editing" "copywriting"
+      "customer-research" "email-sequence" "form-cro" "free-tool-strategy"
+      "launch-strategy" "lead-magnets" "marketing-ideas" "marketing-psychology"
+      "onboarding-cro" "page-cro" "paywall-upgrade-cro" "popup-cro" "pricing-strategy"
+      "product-marketing-context" "programmatic-seo" "referral-program" "revops"
+      "sales-enablement" "schema-markup" "signup-flow-cro" "site-architecture"
+      "social-content"
+    )
+    MARKETING_SRC="$SOURCE_DIR/claude-marketing"
+    for skill in "${MARKETING_SKILLS[@]}"; do
+      local src="$MARKETING_SRC/$skill"
+      local dest="$DEST_SKILLS/$skill"
+      if [[ ! -e "$src" ]]; then
+        echo -e "    ${DIM}SKIP: $skill (not found)${RESET}"
+      elif [[ -e "$dest" ]]; then
+        echo -e "    ${DIM}OK (already installed): $skill${RESET}"
+      else
+        cp -r "$src" "$dest"
+        echo -e "    ${GREEN}✓ INSTALLED: $skill${RESET}"
+      fi
+    done
+    echo -e "    ${GREEN}✓ Marketing suite complete${RESET}"
+  else
+    echo -e "    ${DIM}Skipped.${RESET}"
+  fi
+
+  # ── Ads Suite (optional) ──────────────────────────────────────────────
+  echo ""
+  echo -e "  ${BOLD}Ads Suite${RESET} ${DIM}(18 skills + 10 agents — Google, Meta, LinkedIn, TikTok, etc.):${RESET}"
+  read -rp "    Install full Ads suite? [y/N] " answer
+  if [[ "$answer" =~ ^[Yy]$ ]]; then
+    ADS_SRC="$SOURCE_DIR/claude-ads"
+    # Main ads skill + sub-skills
+    for skill_dir in "$ADS_SRC"/*/; do
+      name=$(basename "$skill_dir")
+      [[ "$name" == "agents" ]] && continue
+      local dest="$DEST_SKILLS/$name"
+      if [[ -e "$dest" ]]; then
+        echo -e "    ${DIM}OK (already installed): $name${RESET}"
+      else
+        cp -r "$skill_dir" "$dest"
+        echo -e "    ${GREEN}✓ INSTALLED: $name${RESET}"
+      fi
+    done
+    # Agents
+    if [[ -d "$ADS_SRC/agents" ]]; then
+      for agent_file in "$ADS_SRC/agents"/*.md; do
+        agent_name="$(basename "$agent_file")"
+        if [[ -f "$DEST_AGENTS/$agent_name" ]]; then
+          echo -e "    ${DIM}OK (already installed): agent/$agent_name${RESET}"
+        else
+          cp "$agent_file" "$DEST_AGENTS/$agent_name"
+          echo -e "    ${GREEN}✓ INSTALLED: agent/$agent_name${RESET}"
+        fi
+      done
+    fi
+    echo -e "    ${GREEN}✓ Ads suite complete${RESET}"
+  else
+    echo -e "    ${DIM}Skipped.${RESET}"
+  fi
+
   # ── SEO Suite (optional) ───────────────────────────────────────────────
   echo ""
   echo -e "  ${BOLD}SEO Suite${RESET} ${DIM}(20 skills + 12 agents):${RESET}"
