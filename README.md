@@ -223,7 +223,7 @@ Install these after setting up your project:
 
 ```bash
 # Essential (install first)
-claude install superpowers context-mode claude-mem security
+claude install context-mode claude-mem security
 
 # Recommended
 claude install frontend-design ui-ux-pro-max code-review
@@ -236,6 +236,9 @@ cd ~/.claude/skills/gstack && ./setup
 
 # Optional
 claude install cost-reducer
+
+# Currently disabled in author's setup (covered by claude-mem + gstack)
+# claude install superpowers
 ```
 
 > 💡 **UI workflow:** ui-ux-pro-max diseña → web-design-guidelines refina → web-accessibility audita → emil-design-eng pule animaciones

@@ -226,7 +226,7 @@ Local skills via `scripts/install-skills.sh`. Marketplace packages via Claude Co
 ### Marketplace Packages (Claude Code Plugin Manager)
 | Package | Sub-skills / Purpose |
 |---------|---------------------|
-| `superpowers` | TDD, debugging, brainstorming, planning, worktrees, parallel agents (12 skills) |
+| ~~`superpowers`~~ *(deshabilitado 2026-04-08)* | TDD, debugging, brainstorming, planning, worktrees, parallel agents (12 skills) |
 | `claude-mem` | Cross-session memory: make-plan, do, smart-explore, mem-search |
 | `context-mode` | Real-time context management — prevents context window flooding |
 | `frontend-design` | Production-grade UI components, avoids generic AI aesthetics |
@@ -250,11 +250,11 @@ Local skills via `scripts/install-skills.sh`. Marketplace packages via Claude Co
 | `humanizer` | [blader/humanizer](https://github.com/blader/humanizer) | Remove AI writing patterns from text (24 patterns, v2.2.0) |
 
 ### Always Install (Recommended Core)
-- `superpowers` — foundational workflow discipline (TDD, debugging, planning)
 - `claude-mem` — cross-session memory, never lose context between conversations
 - `context-mode` — prevents context flooding on large outputs
 - `security` — every project needs security review
 - `frontend-design` — UI/component work
+- ~~`superpowers`~~ *(opcional — actualmente deshabilitado, cubierto por claude-mem + gstack)*
 
 ### By Project Type
 | Template | Additional Skills |
@@ -279,8 +279,8 @@ Local skills via `scripts/install-skills.sh`. Marketplace packages via Claude Co
 **Core (siempre activos — no comentar):**
 - `security` — OWASP, auth, input validation
 - `researcher` — deep research y síntesis de fuentes
-- `superpowers:systematic-debugging` — metodología estructurada de debugging (via superpowers)
 - `humanizer` — eliminar patrones de escritura AI
+<!-- superpowers:systematic-debugging — deshabilitado 2026-04-08 (cubierto por gstack /investigate) -->
 
 **Según tipo de proyecto (descomenta los que aplican):**
 
@@ -369,7 +369,7 @@ CSS_VARIABLES_DESCRIPTION:
   --background, --foreground: tema claro/oscuro via next-themes
   --primary: #6366f1 (indigo-500)
 
-PLUGIN_NAME: superpowers | VERSION: 5.x | PURPOSE: TDD, debugging, planning
+PLUGIN_NAME: context-mode | VERSION: 1.0.22 | PURPOSE: Prevenir context flooding en outputs grandes
 MCP_SERVER_NAME: context7 | STATUS: activo | PURPOSE: documentación de librerías
 
 SECURITY_MEASURES_DESCRIPTION:

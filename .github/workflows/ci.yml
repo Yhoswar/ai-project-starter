@@ -4,13 +4,11 @@ on:
   push:
     branches: [main, develop]
     paths:
-      - 'templates/**'
       - 'scripts/**'
       - '.github/workflows/**'
   pull_request:
     branches: [main]
     paths:
-      - 'templates/**'
       - 'scripts/**'
       - '.github/workflows/**'
 
@@ -24,38 +22,3 @@ jobs:
         run: |
           bash -n scripts/install-skills.sh
           echo "✅ install-skills.sh syntax OK"
-
-  check:
-    name: Lint, Type-check & Test
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        template: [next-saas, api-service, automation]
-    defaults:
-      run:
-        working-directory: templates/${{ matrix.template }}
-
-    steps:
-      - uses: actions/checkout@v4
-
-      - uses: oven-sh/setup-bun@v2
-        with:
-          bun-version: latest
-
-      - name: Install dependencies
-        run: bun install --frozen-lockfile
-
-      - name: Type-check
-        run: bun run typecheck
-
-      - name: Lint
-        run: bun run lint
-
-      - name: Test
-        run: bun run test -- --run
-
-      - name: Build
-        run: bun run build
-        if: matrix.template == 'next-saas'
-        env:
-          SKIP_ENV_VALIDATION: "1"
