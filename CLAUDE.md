@@ -248,6 +248,8 @@ Local skills via `scripts/install-skills.sh`. Marketplace packages via Claude Co
 | Skill | Source | Purpose |
 |-------|--------|---------|
 | `humanizer` | [blader/humanizer](https://github.com/blader/humanizer) | Remove AI writing patterns from text (24 patterns, v2.2.0) |
+| `dream` | [grandamenium/dream-skill](https://github.com/grandamenium/dream-skill) | Auto-memory consolidation every 24h via Stop hook + SessionStart flag |
+| `gstack` | [garrytan/gstack](https://github.com/garrytan/gstack) | 62 skills: eng team (CEO, Designer, QA, DevOps) + marketing/CRO bundle. Requires Bun + Node.js |
 
 ### Always Install (Recommended Core)
 - `claude-mem` — cross-session memory, never lose context between conversations

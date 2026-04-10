@@ -3,7 +3,7 @@ $ErrorActionPreference = "Stop"
 if ($env:SKILLS_ROOT) {
   $SourceDir = $env:SKILLS_ROOT
 } else {
-  $SourceDir = "$env:USERPROFILE\OneDrive\Desktop\Claude Skills"
+  $SourceDir = "$env:USERPROFILE\OneDrive\Desktop\Claude\claude-skills"
 }
 
 $DestDir = "$env:USERPROFILE\.claude\skills"
@@ -55,6 +55,32 @@ if ($answer -match "^[Yy]$") {
   } else {
     git clone --depth 1 https://github.com/blader/humanizer.git $HumanizerDest
     Write-Host "  INSTALLED: humanizer"
+  }
+}
+
+$answer = Read-Host "  Install dream (grandamenium/dream-skill — auto-memory consolidation)? [y/N]"
+if ($answer -match "^[Yy]$") {
+  $DreamDest = Join-Path $GitSkillsDir "dream"
+  if (Test-Path $DreamDest) {
+    Write-Host "  OK (already installed): dream"
+  } else {
+    git clone --depth 1 https://github.com/grandamenium/dream-skill.git $DreamDest
+    Write-Host "  INSTALLED: dream"
+    Write-Host "  NOTE: dream requires Stop hook in ~/.claude/settings.json + instruction in ~/.claude/CLAUDE.md. See README."
+  }
+}
+
+$answer = Read-Host "  Install gstack (garrytan/gstack — 62 skills: eng team + marketing/CRO)? [y/N]"
+if ($answer -match "^[Yy]$") {
+  $GstackDest = Join-Path $GitSkillsDir "gstack"
+  if (Test-Path $GstackDest) {
+    Write-Host "  OK (already installed): gstack"
+  } else {
+    git clone --single-branch --depth 1 https://github.com/garrytan/gstack.git $GstackDest
+    Push-Location $GstackDest
+    bash ./setup
+    Pop-Location
+    Write-Host "  INSTALLED: gstack (requires Bun + Node.js for /browse)"
   }
 }
 
